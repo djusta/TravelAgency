@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\DestinationController;
+use App\Http\Controllers\PackageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\WebsiteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,9 +18,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -32,3 +35,27 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 Route::get('/users', [UsersController::class, 'index'])->name('users.index');
+
+
+/*
+|--------------------------------------------------------------------------
+| Admin Routes
+|--------------------------------------------------------------------------
+*/
+Route::prefix('admin')->name('admin.')->group(function() {
+    Route::resource('destinations', DestinationController::class);
+    Route::resource('packages', PackageController::class);
+});
+
+/*
+|--------------------------------------------------------------------------
+| Website Routes
+|--------------------------------------------------------------------------
+*/
+Route::controller(WebsiteController::class)->group(function () {
+    Route::get('/', 'home')->name('home');
+    Route::get('/contact-us', 'contactUs')->name('contact');
+    Route::get('/destinations/{slug}', 'destination')->name('destination');
+    Route::get('/package/{slug}', 'package')->name('package');
+    Route::fallback('notFound'); // Catch-all route for 404 errors
+});
