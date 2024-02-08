@@ -26,4 +26,10 @@ class WebsiteController extends Controller
             'packages'
         ]));
     }
+
+    public function notFound(): View
+    {
+        return view('pages.404');
+    }
+
 }

@@ -32,11 +32,14 @@
 @endsection
 
 @push('scripts')
+<script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+
     <script type="text/javascript">
         $(function() {
             var dataTable = $('.data-table').DataTable({
                 processing: true,
                 serverSide: true,
+                responsive: true,
                 ajax: "{{ route('admin.destinations.index') }}",
                 columns: [{
                         data: 'id',
@@ -64,10 +67,11 @@
                 ]
             });
         });
-    </script>
-    {{-- <script>
+
         $(document).on('click', '.delete', function(dataTable) {
             var id = $(this).data('id');
+            var dataTable = $('.data-table').DataTable();
+
             if (confirm('Are you sure you want to delete this record?')) {
                 $.ajax({
                     url: '/admin/destinations/' + id, // Replace with your delete route
@@ -76,7 +80,6 @@
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     success: function(response) {
-                        console.log(dataTable);
                         // Handle success, e.g., update DataTable or perform other actions
                         dataTable.ajax.reload();
                     },
@@ -86,5 +89,9 @@
                 });
             }
         });
-    </script> --}}
+    </script>
+@endpush
+
+@push('styles')
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
 @endpush

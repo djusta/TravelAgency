@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ asset('adminLTE/dist/css/adminlte.min.css?v=3.2.0') }}">
 
     @stack('styles')
+    @vite(['resources/css/admin.css'])
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed ">

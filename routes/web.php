@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\ProfileController;
@@ -22,9 +23,9 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -43,6 +44,8 @@ Route::get('/users', [UsersController::class, 'index'])->name('users.index');
 |--------------------------------------------------------------------------
 */
 Route::prefix('admin')->name('admin.')->group(function() {
+    Route::redirect('/', '/admin/dashboard', );
+    Route::get('/dashboard', [DashboardController::class, 'admin'])->name('dashboard');
     Route::resource('destinations', DestinationController::class);
     Route::resource('packages', PackageController::class);
 });

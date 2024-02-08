@@ -34,9 +34,10 @@
 @push('scripts')
     <script type="text/javascript">
         $(function() {
-            var table = $('.data-table').DataTable({
+            const table = $('.data-table').DataTable({
                 processing: true,
                 serverSide: true,
+                stateSave: true,
                 ajax: "{{ route('admin.packages.index') }}",
                 columns: [{
                         data: 'id',
@@ -61,5 +62,26 @@
             });
         });
 
+        $(document).on('click', '.delete', function(dataTable) {
+            var id = $(this).data('id');
+            var dataTable = $('.data-table').DataTable();
+
+            if (confirm('Are you sure you want to delete this record?')) {
+                $.ajax({
+                    url: '/admin/packages/' + id, // Replace with your delete route
+                    type: 'DELETE',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function(response) {
+                        // Handle success, e.g., update DataTable or perform other actions
+                        dataTable.ajax.reload();
+                    },
+                    error: function(error) {
+                        console.error('Error deleting record:', error);
+                    }
+                });
+            }
+        });
     </script>
 @endpush
