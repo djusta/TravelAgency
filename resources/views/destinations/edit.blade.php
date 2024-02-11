@@ -37,7 +37,7 @@
                         <x-forms.select label="Country" name="country" selected="{{ old('country') }}">
                             <option value="">Select Country</option>
                             @foreach ($countries as $country)
-                                <option value="{{ $country->id }}">{{ $country->name }}</option>
+                                <option value="{{ $country->id }}" {{ $country->id == $destination->parent_destination ? 'selected' : '' }}>{{ $country->name }}</option>
                             @endforeach
                         </x-forms.select>
                     </div>
@@ -45,7 +45,7 @@
                         <x-forms.select label="State" name="state" selected="{{ old('state') }}">
                             <option value="">Select State</option>
                             @foreach ($states as $state)
-                                <option value="{{ $state->id }}">{{ $state->name }}</option>
+                                <option value="{{ $state->id }}" {{ $state->id == $destination->parent_destination ? 'selected' : '' }}>{{ $state->name }}</option>
                             @endforeach
                         </x-forms.select>
                     </div>

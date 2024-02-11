@@ -7,6 +7,7 @@ use App\Http\Requests\StorePackageRequest;
 use App\Http\Requests\UpdatePackageRequest;
 use App\Models\Destination;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Yajra\DataTables\Facades\DataTables;
 
 class PackageController extends Controller
@@ -47,7 +48,26 @@ class PackageController extends Controller
      */
     public function store(StorePackageRequest $request)
     {
-        //
+        // Handle image upload
+        if ($request->hasFile('image')) {
+            // Get the file name with extension
+            $imageName = Str::uuid() .  $request->file('image')->getClientOriginalName();
+            // Store the image in the storage folder (public/uploads) and get the path
+            $imagePath = $request->file('image')->storeAs('public/uploads', $imageName);
+        } else {
+            $imageName = null; // If no image is uploaded, set imagePath to null
+        }
+
+        $package = Package::create([
+            'name' => $request->name,
+            'slug' => $request->slug,
+            'duration' => $request->duration,
+            'price' => $request->price,
+            'description' => $request->description,
+            'image' => $imageName
+        ]);
+
+        return redirect()->route('admin.packages.index');
     }
 
     /**

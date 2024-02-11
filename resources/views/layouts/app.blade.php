@@ -13,9 +13,7 @@
 
 <body class="flex flex-col h-screen">
 
-    <header>
-        @include('layouts.inc.app_nav')
-    </header>
+    @include('layouts.inc.app_nav')
 
     <main class="flex-1 mb-4">
         @yield('content')
@@ -24,14 +22,17 @@
     <hr>
     @include('layouts.inc.app_footer')
 
+    <x-widgets.main-lead-modal />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    @vite('resources/js/app.js')
 
     <script>
-        
+        function openLeadForm(package = null) {
+            $('#package').val(package.name);
+            $('#leadModal').removeClass('hidden');
+        }
     </script>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-@vite('resources/js/app.js')
-
     @stack('scripts')
 </body>
 

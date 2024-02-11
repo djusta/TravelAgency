@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Destination;
 use App\Models\Package;
+use App\Models\Testimonial;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,12 +16,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Package::factory(10)->create();
-        Destination::factory()->count(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $this->call([
+            DestinationSeeder::class,
+            PackageSeeder::class,
+            TestimonialSeeder::class,
+        ]);
     }
 }

@@ -57,7 +57,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.packages.index') }}" class="nav-link">
+                    <a href="{{ route('admin.leads.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-layer-group"></i>
                         <p>
                             Leads

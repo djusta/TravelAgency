@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DestinationController;
+use App\Http\Controllers\LeadController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UsersController;
@@ -48,6 +49,7 @@ Route::prefix('admin')->name('admin.')->group(function() {
     Route::get('/dashboard', [DashboardController::class, 'admin'])->name('dashboard');
     Route::resource('destinations', DestinationController::class);
     Route::resource('packages', PackageController::class);
+    Route::resource('leads', LeadController::class);
 });
 
 /*
@@ -60,5 +62,6 @@ Route::controller(WebsiteController::class)->group(function () {
     Route::get('/contact-us', 'contactUs')->name('contact');
     Route::get('/destinations/{slug}', 'destination')->name('destination');
     Route::get('/package/{slug}', 'package')->name('package');
+    Route::post('/lead', 'storeLead')->name('storeLead');
     Route::fallback('notFound'); // Catch-all route for 404 errors
 });

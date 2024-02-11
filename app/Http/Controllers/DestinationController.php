@@ -52,8 +52,6 @@ class DestinationController extends Controller
      */
     public function store(StoreDestinationRequest $request)
     {
-
-        // dd($request->all());
         // Handle image upload
         if ($request->hasFile('image')) {
             // Get the file name with extension
@@ -61,7 +59,7 @@ class DestinationController extends Controller
             // Store the image in the storage folder (public/uploads) and get the path
             $imagePath = $request->file('image')->storeAs('public/uploads', $imageName);
         } else {
-            $imagePath = null; // If no image is uploaded, set imagePath to null
+            $imageName = null; // If no image is uploaded, set imagePath to null
         }
 
         $destination = Destination::create([

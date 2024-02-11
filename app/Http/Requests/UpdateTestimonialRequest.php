@@ -3,26 +3,15 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Str;
 
-class StorePackageRequest extends FormRequest
+class UpdateTestimonialRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
-    }
-
-    /**
-     * Prepare the data for validation.
-     */
-    protected function prepareForValidation(): void
-    {
-        $this->merge([
-            'slug' => Str::slug($this->slug),
-        ]);
+        return false;
     }
 
     /**
@@ -33,9 +22,7 @@ class StorePackageRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'=> 'required',
-            'slug' => 'required|string|unique:packages,slug',
-            'duration' => 'nullable-'
+            //
         ];
     }
 }

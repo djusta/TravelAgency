@@ -22,13 +22,16 @@
                             value="{{ old('name', $package->name) }}" />
                     </div>
                     <div class="col-md-4">
-                        <x-forms.input label="Duration" name="duration" type="text" value="" />
+                        <x-forms.input label="Slug" name="slug" type="text" value="{{ old('slug', $package->name) }}" />
                     </div>
                     <div class="col-md-4">
-                        <x-forms.input label="Price" name="price" type="number" value="" />
+                        <x-forms.input label="Duration" name="duration" type="text" value="{{ old('slug', $package->duration) }}" />
+                    </div>
+                    <div class="col-md-4">
+                        <x-forms.input label="Price" name="price" type="number" value="{{ old('slug', $package->price) }}" />
                     </div>
                     <div>
-                        <x-forms.textarea label="Description" name="description" value="" />
+                        <x-forms.textarea label="Description" name="description" value="{{ old('slug', $package->description) }}" />
                     </div>
                     <div class="col-12">
                         <x-forms.select label="Destinations" name="destinations[]" id="destinations" multiple>
@@ -38,6 +41,21 @@
                                     {{ $destination->name }}</option>
                             @endforeach
                         </x-forms.select>
+                    </div>
+                    <!-- Add image upload field -->
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="image">Image</label>
+                            <input type="file" class="form-control-file @error('image') is-invalid @enderror"
+                                id="image" name="image" accept="image/*">
+                            @error('image')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <img id="image-preview" src="{{ asset('storage/uploads/' . $package->image) }}"
+                            alt="Image Preview" style="max-width: 100%;">
                     </div>
                     <div>
                         <input type="submit" value="Save" class="btn btn-success">

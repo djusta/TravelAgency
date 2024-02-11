@@ -10,6 +10,8 @@ class Package extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $guarded = [];
+
     public function destinations()
     {
         return $this->belongsToMany(Destination::class);
