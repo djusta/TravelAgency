@@ -7,6 +7,8 @@ use App\Http\Requests\StoreDestinationRequest;
 use App\Http\Requests\UpdateDestinationRequest;
 use App\Models\Package;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Yajra\DataTables\Facades\DataTables;
 
 class DestinationController extends Controller
@@ -50,6 +52,29 @@ class DestinationController extends Controller
      */
     public function store(StoreDestinationRequest $request)
     {
+
+        // dd($request->all());
+        // Handle image upload
+        if ($request->hasFile('image')) {
+            // Get the file name with extension
+            $imageName = Str::uuid() .  $request->file('image')->getClientOriginalName();
+            // Store the image in the storage folder (public/uploads) and get the path
+            $imagePath = $request->file('image')->storeAs('public/uploads', $imageName);
+        } else {
+            $imagePath = null; // If no image is uploaded, set imagePath to null
+        }
+
+        $destination = Destination::create([
+            'name' => $request->name,
+            'slug' => $request->slug,
+            'type' => $request->type,
+            'description' => $request->description,
+            'excerpt' => $request->excerpt,
+            'parent_destination' => $request->parent_destination,
+            'image' => $imageName,
+        ]);
+
+        return redirect()->route('admin.destinations.index');
     }
 
     /**
@@ -71,7 +96,9 @@ class DestinationController extends Controller
         // Retrieve selected package IDs for the destination
         $selectedPackageIds = $destination->packages?->pluck('id')->toArray();
 
-        if (! $selectedPackageIds) { $selectedPackageIds = [];}
+        if (!$selectedPackageIds) {
+            $selectedPackageIds = [];
+        }
         return view('destinations.edit', compact('destination', 'countries', 'states', 'packages', 'selectedPackageIds'));
     }
 
@@ -80,9 +107,29 @@ class DestinationController extends Controller
      */
     public function update(UpdateDestinationRequest $request, Destination $destination)
     {
+        // Update destination attributes
         $destination->update([
-
+            'name' => $request->name,
+            'slug' => $request->slug,
+            'type' => $request->type,
+            'description' => $request->description,
+            'excerpt' => $request->excerpt,
+            'parent_destination' => $request->parent_destination,
         ]);
+
+        // Handle image upload
+        if ($request->hasFile('image')) {
+            // Delete the old image if it exists
+            if ($destination->image) {
+                Storage::delete('public/uploads/' . $destination->image);
+            }
+            // Get the file name with extension
+            $imageName = Str::uuid() . '.' . $request->file('image')->getClientOriginalExtension();
+            // Store the image in the storage folder (public/uploads) and get the path
+            $imagePath = $request->file('image')->storeAs('public/uploads', $imageName);
+            // Update the image path in the destination model
+            $destination->update(['image' => $imageName]);
+        }
 
         $destination->packages()->sync($request->input('packages', []));
 

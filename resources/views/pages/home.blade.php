@@ -30,9 +30,9 @@
             <div class="destination-cards flex flex-wrap">
 
                 @foreach ($popularDestinations as $destination)
-                    <x-destinations.card destinationName="{{ $destination->name }}" :bg-image="$destination->image_path"
+                    <x-destinations.card destinationName="{{ $destination->name }}" :bg-image="$destination->image"
                         description="{{ $destination->short_description ?? 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis saepe beatae dignissimos eligendi sapiente dolorum, laboriosam perferendis animi facere sint.' }}"
-                        slug="{{ $destination->id }}" :package-count="$destination->packages_count"/>
+                        slug="{{ $destination->slug }}" :package-count="$destination->packages_count"/>
                 @endforeach
 
             </div>

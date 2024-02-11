@@ -10,14 +10,19 @@ use Illuminate\Http\Request;
 class WebsiteController extends Controller
 {
     public function home() {
-        $popularDestinations = Destination::where('type', 'city')->has('packages')->withCount('packages')->take(3)->get();
+        $popularDestinations = Destination::
+        whereIn('type', ['city','country', 'state'])
+        // ->has('packages')
+        ->withCount('packages')
+        ->take(3)
+        ->get();
         $packages = Package::take(6)->get();
         return view('pages.home', compact('packages', 'popularDestinations'));
     }
 
-    public function destination($id): View
+    public function destination($slug): View
     {
-        $destination = Destination::where('id', $id)->first();
+        $destination = Destination::where('slug', $slug)->first();
         $packages = $destination->packages()->get();
 
 

@@ -14,7 +14,7 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('admin.destinations.update', ['destination' => $destination->id]) }}" method="post">
+            <form action="{{ route('admin.destinations.update', ['destination' => $destination->id]) }}" method="post"  enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="row">
@@ -23,7 +23,7 @@
                             value="{{ old('name', $destination->name) }}" />
                     </div>
                     <div class="col-md-4">
-                        <x-forms.input label="Slug" name="slug" type="text" value="{{ old('slug') }}" />
+                        <x-forms.input label="Slug" name="slug" type="text" value="{{ old('slug', $destination->slug) }}" />
                     </div>
                     <div></div>
                     <div class="col-md-4">
@@ -52,17 +52,34 @@
                     <div></div>
                     <div class="col-md-4">
                         <x-forms.textarea label="Excerpt (Short Description)" name="excerpt"
-                            value="{{ old('excerpt') }}" />
+                            value="{{ old('excerpt', $destination->excerpt) }}" />
                     </div>
                     <div class="col-md-8">
-                        <x-forms.textarea label="Description" name="description" value="{{ old('description') }}" />
+                        <x-forms.textarea label="Description" name="description" value="{{ old('description', $destination->description) }}" />
                     </div>
                     <div class="col-12">
                         <x-forms.select label="Packages" name="packages[]" id="packages" multiple>
                             @foreach ($packages as $package)
-                                <option value="{{ $package->id }}" {{ in_array($package->id, $selectedPackageIds) ? 'selected' : '' }}>{{ $package->name }}</option>
+                                <option value="{{ $package->id }}"
+                                    {{ in_array($package->id, $selectedPackageIds) ? 'selected' : '' }}>
+                                    {{ $package->name }}</option>
                             @endforeach
                         </x-forms.select>
+                    </div>
+                    <!-- Add image upload field -->
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="image">Image</label>
+                            <input type="file" class="form-control-file @error('image') is-invalid @enderror"
+                                id="image" name="image" accept="image/*">
+                            @error('image')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <img id="image-preview" src="{{ asset('storage/uploads/' . $destination->image) }}"
+                            alt="Image Preview" style="max-width: 100%;">
                     </div>
                     <div class="col-md-12">
                         <input type="submit" value="Save" class="btn btn-success">
@@ -76,7 +93,7 @@
 @push('scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
     <script>
-            $('#packages').select2();
+        $('#packages').select2();
     </script>
     <script>
         toggleType();
@@ -98,8 +115,20 @@
             }
         }
     </script>
+    <script>
+        document.getElementById('image').addEventListener('change', function(event) {
+            var input = event.target;
+            var reader = new FileReader();
+            reader.onload = function() {
+                var img = document.getElementById('image-preview');
+                img.src = reader.result;
+                img.style.display = 'block'; // Show the image preview
+            };
+            reader.readAsDataURL(input.files[0]);
+        });
+    </script>
 @endpush
 
 @push('styles')
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
 @endpush

@@ -10,7 +10,7 @@ class Destination extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['name', 'type', 'description', 'excerpt', 'parent_destination'];
+    protected $fillable = ['name', 'slug', 'type', 'description', 'excerpt', 'parent_destination', 'image'];
 
     // Relationship for parent destination
     public function parentDestination()
