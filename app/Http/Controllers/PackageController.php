@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Locations;
 use App\Models\Package;
 use App\Http\Requests\StorePackageRequest;
 use App\Http\Requests\UpdatePackageRequest;
@@ -24,7 +25,7 @@ class PackageController extends Controller
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
                     $editUrl = route('admin.packages.edit', ['package' => $row->id]);
-                    $actionBtn = '<a href="' . $editUrl . '" class="edit btn btn-success btn-sm">Edit</a> 
+                    $actionBtn = '<a href="' . $editUrl . '" class="edit btn btn-success btn-sm">Edit</a>
                     <a href="javascript:void(0)" class="delete btn btn-danger btn-sm" data-id="' . $row->id . '">Delete</a>';
                     return $actionBtn;
                 })
@@ -66,6 +67,14 @@ class PackageController extends Controller
             'description' => $request->description,
             'image' => $imageName
         ]);
+$validatedData = $request->all();
+        foreach ($validatedData['offer_name'] as $key => $name) {
+            $offer = new Locations();
+            $offer->package_id = $package->id;
+            $offer->name = $name;
+            $offer->description = $validatedData['offer_description'][$key];
+            $offer->save();
+        }
 
         return redirect()->route('admin.packages.index');
     }
@@ -84,11 +93,13 @@ class PackageController extends Controller
     public function edit(Package $package)
     {
         $destinations = Destination::all();
+        $locations = Locations::where('package_id', $package->id)->get();
+
         // Retrieve selected package IDs for the destination
         $selectedDestinationIds = $package->destinations?->pluck('id')->toArray();
 
         if (! $selectedDestinationIds) { $selectedDestinationIds = [];}
-        return view('packages.edit', compact('package', 'destinations', 'selectedDestinationIds'));
+        return view('packages.edit', compact('package', 'destinations', 'selectedDestinationIds', 'locations'));
     }
 
     /**
@@ -105,5 +116,12 @@ class PackageController extends Controller
     public function destroy(Package $package)
     {
         $package->delete();
+    }
+
+    public function locationDestroy($id)
+    {
+        $location = Locations::where('id', $id)->delete();
+
+        return redirect()->back()->with('success', 'The Location has been removed');
     }
 }

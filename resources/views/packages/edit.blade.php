@@ -57,6 +57,19 @@
                         <img id="image-preview" src="{{ asset('storage/uploads/' . $package->image) }}"
                             alt="Image Preview" style="max-width: 100%;">
                     </div>
+                    <div class="row">
+                        @foreach ($locations as $value)
+                        <div class="col-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p>{{ $value->name }}</p>
+                                    <p>{{ $value->description }}</p>
+                                    <a href="" class="btn btn-danger btn-sm">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
                     <div>
                         <input type="submit" value="Save" class="btn btn-success">
                     </div>
