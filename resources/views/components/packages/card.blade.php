@@ -30,6 +30,7 @@
                 <p class="text-gray-600">per couple</p>
             </div>
             <div class="px-6 py-4">
+                <a href="{{ route('package', ['slug' => $package->slug]) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">View Details</a>
                 <button class="bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded-full" onclick="openLeadForm({{ $package->toJson() }})">
                     Book Now
                 </button>

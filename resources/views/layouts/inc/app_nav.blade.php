@@ -1,11 +1,12 @@
-<nav class="bg-indigo-500 p-4">
+<nav class="bg-indigo-500 p-2">
     <div class="container mx-auto flex justify-between items-center">
-        <div>
-            <a href="#" class="text-white text-3xl font-bold">{{ config('app.name', 'Travel Agency') }}</a>
+        <div class="flex items-center">
+            <img src="{{ asset('logo.png') }}" alt="{{ config('app.name') }}" srcset="" class="w-16 mr-5">
+            <a href="{{ route('home') }}" class="text-white text-3xl font-bold">{{ config('app.name', 'Travel Agency') }}</a>
         </div>
         <div class="hidden md:flex space-x-4">
             <a href="{{ route('home') }}" class="text-white">Home</a>
-            <a href="/123#" class="text-white">About</a>
+            <a href="{{ route('about') }}" class="text-white">About</a>
             <a href="/123" class="text-white">Services</a>
             <a href="{{ route('contact') }}" class="text-white">Contact</a>
         </div>

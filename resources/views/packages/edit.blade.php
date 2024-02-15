@@ -22,7 +22,7 @@
                             value="{{ old('name', $package->name) }}" />
                     </div>
                     <div class="col-md-4">
-                        <x-forms.input label="Slug" name="slug" type="text" value="{{ old('slug', $package->name) }}" />
+                        <x-forms.input label="Slug" name="slug" type="text" value="{{ old('slug', $package->slug) }}" />
                     </div>
                     <div class="col-md-4">
                         <x-forms.input label="Duration" name="duration" type="text" value="{{ old('slug', $package->duration) }}" />

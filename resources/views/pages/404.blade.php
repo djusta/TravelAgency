@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', '404 Not Found - ' . config('app.name'))
+
 @section('content')
     <div class="h-full flex items-center">
         <div class="container mx-auto my-10 px-3">
