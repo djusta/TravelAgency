@@ -50,6 +50,7 @@ Route::prefix('admin')->name('admin.')->group(function() {
     Route::resource('destinations', DestinationController::class);
     Route::resource('packages', PackageController::class);
     Route::resource('leads', LeadController::class);
+    Route::get('/delete/location/{id}', [PackageController::class, 'locationDestroy'])->name('delete.location');
 });
 
 /*
