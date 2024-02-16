@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DestinationController;
+use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\LeadController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\ProfileController;
@@ -50,6 +51,7 @@ Route::prefix('admin')->name('admin.')->group(function() {
     Route::resource('destinations', DestinationController::class);
     Route::resource('packages', PackageController::class);
     Route::resource('leads', LeadController::class);
+    Route::resource('landing-pages', LandingPageController::class);
 });
 
 /*

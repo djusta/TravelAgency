@@ -22,7 +22,7 @@ class PackageController extends Controller
 
             return DataTables::of($data)
                 ->addIndexColumn()
-                ->addColumn('action', function($row){
+                ->addColumn('action', function ($row) {
                     $editUrl = route('admin.packages.edit', ['package' => $row->id]);
                     $actionBtn = '<a href="' . $editUrl . '" class="edit btn btn-success btn-sm">Edit</a> 
                     <a href="javascript:void(0)" class="delete btn btn-danger btn-sm" data-id="' . $row->id . '">Delete</a>';
@@ -48,6 +48,7 @@ class PackageController extends Controller
      */
     public function store(StorePackageRequest $request)
     {
+        dd($request->all());
         // Handle image upload
         if ($request->hasFile('image')) {
             // Get the file name with extension
@@ -87,7 +88,9 @@ class PackageController extends Controller
         // Retrieve selected package IDs for the destination
         $selectedDestinationIds = $package->destinations?->pluck('id')->toArray();
 
-        if (! $selectedDestinationIds) { $selectedDestinationIds = [];}
+        if (!$selectedDestinationIds) {
+            $selectedDestinationIds = [];
+        }
         return view('packages.edit', compact('package', 'destinations', 'selectedDestinationIds'));
     }
 

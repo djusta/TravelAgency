@@ -65,7 +65,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('admin.packages.index') }}" class="nav-link">
+                    <a href="{{ route('admin.landing-pages.index') }}" class="nav-link">
                         <i class="nav-icon fab fa-windows"></i>
                         <p>
                             Landing Pages
