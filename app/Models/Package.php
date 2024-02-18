@@ -12,8 +12,19 @@ class Package extends Model
 
     protected $guarded = [];
 
+    /**
+     * Get the destinations that owns the package.
+     */
     public function destinations()
     {
         return $this->belongsToMany(Destination::class);
+    }
+
+    /**
+     * The landing pages that belong to the package.
+     */
+    public function landingPages()
+    {
+        return $this->belongsToMany(LandingPage::class);
     }
 }

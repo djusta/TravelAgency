@@ -7,7 +7,7 @@
             <div class="font-bold text-xl mb-2">{{ $package->name }}</div>
             <p class="text-gray-700 text-base">
                 @if ($package->description)
-                    {{ $package->description }}
+                    {{ $package?->description }}
                 @else
                 Lorem ipsum dolor sit amet consectetur adipisicing
                 elit. Labore tempore ullam animi officiis quasi laudantium consequuntur laborum. Enim omnis doloribus hic,
@@ -30,8 +30,8 @@
                 <p class="text-gray-600">per couple</p>
             </div>
             <div class="px-6 py-4">
-                <a href="{{ route('package', ['slug' => $package->slug]) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">View Details</a>
-                <button class="bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded-full" onclick="openLeadForm({{ $package->toJson() }})">
+                <a href="{{ route('package', ['slug' => $package->slug]) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded-full">View Details</a>
+                <button class="bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-2 rounded-full" onclick="openLeadForm({{ $package->toJson() }})">
                     Book Now
                 </button>
             </div>

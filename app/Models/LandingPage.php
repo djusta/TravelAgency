@@ -10,4 +10,12 @@ class LandingPage extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    /**
+     * The packages that belong to the landing page.
+     */
+    public function packages()
+    {
+        return $this->belongsToMany(Package::class);
+    }
 }

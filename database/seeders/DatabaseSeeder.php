@@ -7,6 +7,7 @@ namespace Database\Seeders;
 use App\Models\Destination;
 use App\Models\Package;
 use App\Models\Testimonial;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,6 +21,14 @@ class DatabaseSeeder extends Seeder
             DestinationSeeder::class,
             PackageSeeder::class,
             TestimonialSeeder::class,
+            RoleSeeder::class
+        ]);
+
+        User::create([
+            "name" => "Super Admin",
+            "email" => "super@mail.com",
+            "role_id" => 3,
+            "password" => bcrypt("Pass@123")
         ]);
     }
 }

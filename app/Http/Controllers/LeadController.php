@@ -46,7 +46,12 @@ class LeadController extends Controller
      */
     public function store(StoreLeadRequest $request)
     {
-        //
+        $lead = Lead::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'contact' => $request->contact ?? $request->phone,
+            
+        ]);
     }
 
     /**

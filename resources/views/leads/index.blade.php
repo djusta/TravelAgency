@@ -18,9 +18,9 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Title</th>
-                        <th>Description</th>
-                        {{-- <th>Content</th> --}}
+                        <th>Name</th>
+                        <th>Contact No</th>
+                        <th>Email</th>
                         <th width="105px">Action</th>
                     </tr>
                 </thead>
@@ -51,7 +51,10 @@
                         data: 'contact',
                         name: 'contact'
                     },
-                    //   {data: 'content', name: 'content'},
+                    {
+                        data: 'email',
+                        name: 'email'
+                    },
                     {
                         data: 'action',
                         name: 'action',
