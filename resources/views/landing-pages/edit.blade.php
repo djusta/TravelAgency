@@ -28,7 +28,8 @@
                 </div>
                 <div>
                     <select name="template" id="" class="form-control mb-4">
-                        <option value="1">Template 1</option>
+                        <option value="1" {{ $landingPage->template == 1 ? 'selected' : '' }}>Template 1</option>
+                        <option value="2" {{ $landingPage->template == 2 ? 'selected' : '' }}>Template 2</option>
                     </select>
                 </div>
                 <div class="col-12">

@@ -21,6 +21,7 @@
                         <th>Name</th>
                         <th>Contact No</th>
                         <th>Email</th>
+                        <th>Status</th>
                         <th width="105px">Action</th>
                     </tr>
                 </thead>
@@ -54,6 +55,10 @@
                     {
                         data: 'email',
                         name: 'email'
+                    },
+                    {
+                        data: 'status',
+                        name: 'status'
                     },
                     {
                         data: 'action',

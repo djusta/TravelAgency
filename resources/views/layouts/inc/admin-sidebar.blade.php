@@ -61,6 +61,9 @@
                         <i class="nav-icon fas fa-layer-group"></i>
                         <p>
                             Leads
+                            @if ($newLeadsCount > 0)
+                            <span class="right badge badge-danger">{{ $newLeadsCount }} New Leads</span>
+                            @endif
                         </p>
                     </a>
                 </li>

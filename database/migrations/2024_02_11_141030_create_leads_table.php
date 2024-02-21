@@ -18,10 +18,12 @@ return new class extends Migration
             $table->string('contact')->nullable();
             $table->text('message')->nullable();
             $table->foreignId('package_id')->nullable()->constrained()->onDelete('restrict');
-            $table->integer('nummber')->nullable();
+            $table->string('package_name')->nullable();
+            $table->integer('adults')->nullable();
             $table->integer('children')->nullable();
             $table->date('travel_date')->nullable();
             $table->string('source')->nullable();
+            $table->bigInteger('status')->default(1);
             $table->timestamps();
             $table->softDeletes();
         });

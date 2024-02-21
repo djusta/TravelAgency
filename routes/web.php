@@ -52,6 +52,9 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function() {
     Route::resource('packages', PackageController::class);
     Route::resource('leads', LeadController::class);
     Route::resource('landing-pages', LandingPageController::class);
+    Route::fallback(function() {
+        return "Not Found";
+    }); // Catch-all route for 404 errors
 });
 
 /*

@@ -85,6 +85,12 @@ class LandingPageController extends Controller
      */
     public function update(UpdateLandingPageRequest $request, LandingPage $landingPage)
     {
+        $landingPage->update([
+            'title' => $request->title,
+            'slug' => $request->slug,
+            'template' => $request->template
+        ]);
+
         $landingPage->packages()->sync($request->input('packages', []));
 
         return back();
@@ -108,7 +114,12 @@ class LandingPageController extends Controller
         $packages = $landingPage->packages;
 
         if ($landingPage->template == 1) {
-            return view('landing-pages.templates.template-1', compact('packages'));
+            return view('landing-pages.templates.template-1', compact('landingPage', 'packages'));
+        }
+        else if ($landingPage->template == 2) {
+            return view('landing-pages.templates.template-2', compact('landingPage', 'packages'));
+        } else {
+            return 'NO Template';
         }
     }
 

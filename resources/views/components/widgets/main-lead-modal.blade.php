@@ -1,6 +1,6 @@
 <!-- Travel Lead Form Modal -->
 <div id="leadModal" class="fixed top-0 left-0 w-full p-2 h-full flex items-center justify-center bg-black bg-opacity-50 hidden">
-    <div class="bg-white p-6 rounded-md shadow-md relative">
+    <div class="bg-white p-6 rounded-md shadow-md relative max-w-2xl">
         <button id="closeTravelLeadBtn" class="absolute top-0 right-0 p-2 cursor-pointer">
             <svg class="h-6 w-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg">
@@ -9,7 +9,7 @@
         </button>
         <h2 class="text-2xl font-bold mb-1">Book Your Adventure!</h2>
         <p class="mb-4">Please provide your information to book this amazing travel package:</p>
-        <form id="travelLeadForm" action="{{ route('storeLead') }}" method="post">
+        <form id="travelLeadForm" action="{{ isset($action) ? $action : route('storeLead') }}" method="post">
             @csrf
             <div class="flex flex-wrap">
                 <div class="px-2 mb-4 w-full">

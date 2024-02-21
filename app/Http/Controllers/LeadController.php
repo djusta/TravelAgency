@@ -16,14 +16,21 @@ class LeadController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Lead::all();
+            $data = Lead::with('status')->get();
 
             return DataTables::of($data)
                 ->addIndexColumn()
-                ->addColumn('action', function($row){
-                    $editUrl = route('admin.packages.edit', ['package' => $row->id]);
-                    $actionBtn = '<a href="' . $editUrl . '" class="edit btn btn-success btn-sm">Edit</a> 
-                    <a href="javascript:void(0)" class="delete btn btn-danger btn-sm" data-id="' . $row->id . '">Delete</a>';
+                ->addColumn('status', function ($row) {
+                    return $row->status->name; // Assuming 'name' is the attribute you want to display from the 'statuses' table
+                })
+                ->addColumn('action', function ($row) {
+                    $editUrl = route('admin.leads.edit', ['lead' => $row->id]);
+                    $showUrl = route('admin.leads.show', ['lead' => $row->id]);
+
+                    $actionBtn = '<a href="' . $showUrl . '" class="show btn btn-info btn-sm mb-1"><i class="far fa-eye"></i></a> ';
+                    $actionBtn .= '<a href="' . $editUrl . '" class="edit btn btn-success btn-sm mb-1"><i class="far fa-edit"></i></a> ';
+                    $actionBtn .= '<a href="javascript:void(0)" class="delete btn btn-danger btn-sm mb-1" data-id="' . $row->id . '"><i class="fas fa-trash-alt"></i></a>';
+                
                     return $actionBtn;
                 })
                 ->rawColumns(['action'])
@@ -50,7 +57,7 @@ class LeadController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'contact' => $request->contact ?? $request->phone,
-            
+
         ]);
     }
 
@@ -59,7 +66,11 @@ class LeadController extends Controller
      */
     public function show(Lead $lead)
     {
-        //
+        $lead->update([
+            'status_id' => 2,
+        ]);
+
+        return view('leads.show', compact('lead'));
     }
 
     /**
