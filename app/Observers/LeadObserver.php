@@ -15,7 +15,7 @@ class LeadObserver
     public function created(Lead $lead): void
     {
         // Send email notification to admin
-        Mail::to('admin@example.com')->send(new NewLeadNotification($lead));
+        Mail::to('djusta06@gmail.com')->send(new NewLeadNotification($lead));
         
         // Send email confirmation to customer
         Mail::to($lead->email)->send(new LeadConfirmation($lead));

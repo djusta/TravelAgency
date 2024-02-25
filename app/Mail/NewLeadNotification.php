@@ -13,12 +13,14 @@ class NewLeadNotification extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $lead;
+    
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct($lead)
     {
-        //
+        $this->lead = $lead;
     }
 
     /**

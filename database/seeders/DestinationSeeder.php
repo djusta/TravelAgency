@@ -18,15 +18,23 @@ class DestinationSeeder extends Seeder
             'name' => 'India',
             'type' => 'country',
             'slug' => 'india',
-            'excerpt' => 'Discover the diverse culture and landscapes of India.',
-            'description' => 'India is a vast and diverse country known for its rich culture, history, and natural beauty.',
+            'excerpt' => 'Explore India\'s cultural richness, historical significance, and breathtaking landscapes on an unforgettable journey of discovery.',
+            'description' => 'India is renowned for its rich culture, diverse history, and stunning natural beauty. From the majestic Himalayas to the serene backwaters of Kerala, India offers a tapestry of experiences. Explore ancient temples, bustling cities, and vibrant festivals in this captivating country.',
         ]);
 
         // Seed states for India
         $states = [
-            ['name' => 'Himachal Pradesh', 'slug' => 'himachal-pradesh', 'excerpt' => 'Explore the Himalayas in Himachal Pradesh.', 'description' => 'Himachal Pradesh is a northern Indian state in the Himalayas known for its scenic beauty and adventure activities.'],
-            ['name' => 'Goa', 'slug' => 'goa', 'excerpt' => 'Relax on the beaches of Goa.', 'description' => 'Goa is a coastal state in western India known for its stunning beaches, vibrant nightlife, and Portuguese heritage.'],
-            ['name' => 'Kerala', 'slug' => 'kerala', 'excerpt' => 'Experience the backwaters of Kerala.', 'description' => 'Kerala, located on the southwestern coast of India, is famous for its tranquil backwaters, lush greenery, and Ayurvedic treatments.'],
+            ['name' => 'Himachal Pradesh', 'slug' => 'himachal-pradesh', 
+            'excerpt' => 'Explore the Himalayas in Himachal Pradesh.', 
+            'description' => 'Himachal Pradesh is a northern Indian state in the Himalayas known for its scenic beauty and adventure activities.'],
+            
+            ['name' => 'Goa', 'slug' => 'goa', 
+            'excerpt' => 'Relax on the beaches of Goa.', 
+            'description' => 'Goa is a coastal state in western India known for its stunning beaches, vibrant nightlife, and Portuguese heritage.'],
+            
+            ['name' => 'Kerala', 'slug' => 'kerala', 
+            'excerpt' => 'Experience the backwaters of Kerala.', 
+            'description' => 'Kerala, located on the southwestern coast of India, is famous for its tranquil backwaters, lush greenery, and Ayurvedic treatments.'],
         ];
 
         foreach ($states as $stateData) {

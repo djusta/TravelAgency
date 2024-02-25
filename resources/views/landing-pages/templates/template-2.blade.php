@@ -13,7 +13,7 @@
         <div class="container mx-auto flex-1 flex items-center justify-center">
             <div>
                 <h1 class="text-center text-5xl text-white font-extrabold font-serif mb-5">{{ $landingPage->title }}</h1>
-                <p class="text-center text-white mb-5 max-w-4xl bg-black bg-opacity-50 p-4 rounded-xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam dignissimos odio cum, expedita amet exercitationem. Illum recusandae aspernatur ut voluptatibus, deleniti temporibus facere aut quod fugiat provident aliquid odit natus dicta dolor dolorum voluptates, quisquam corporis neque nesciunt laborum tempora blanditiis. Modi cumque ab debitis autem quia porro voluptatum quibusdam ipsam veniam? Quas, quod! Omnis, voluptatibus. Deserunt ipsam pariatur ex.</p>
+                <p class="text-center text-white mb-5 max-w-4xl bg-black bg-opacity-50 p-4 rounded-xl">Are you ready to embark on your next unforgettable journey? At {{ config('app.name') }}, we specialize in curating personalized travel experiences tailored to your desires. From exploring exotic destinations to crafting unique itineraries, our team of experts is dedicated to making your travel dreams a reality. With our attention to detail and commitment to excellence, you can trust us to handle every aspect of your journey seamlessly. Start your adventure with {{ config('app.name') }} today!</p>
                 <button class="px-4 py-2 bg-orange-500 text-white font-bold text-3xl rounded-2xl block mx-auto" onclick="openLeadForm()">Get In Touch</button>
             </div>
         </div>
@@ -28,6 +28,20 @@
                 <x-packages.card2 :package="$package" />
                 @endforeach
             </div>
+        </div>
+    </section>
+
+    <section class="bg-slate-800 py-20 bg-cover bg-blend-overlay bg-bottom px-5"
+        style="background-image: url('https://img.freepik.com/free-photo/silhouetted-couple-sit-bench-autumn-tree-generative-ai_188544-12574.jpg?w=1380&t=st=1706109383~exp=1706109983~hmac=ec801800892a65ed2b3271d7ac03e047fb50e1d907da2f803b69a0925bd1a065')">
+        <div class="container mx-auto">
+            <p class="text-center text-4xl font-bold text-neutral-200 mb-5">Whispers of Love: Exclusive Honeymoon Hideaways
+            </p>
+            <p class="text-center text-xl font-semibold text-neutral-400">Escape to Secluded Bliss, Surrounded by Whispers
+                of Love, as Our Thoughtfully Crafted
+                Honeymoon Hideaways Set the Stage for Your Unforgettable Love Story.</p>
+            <button
+                class="py-2 px-4 bg-neutral-100 text-pink-700 hover:bg-pink-700 hover:text-neutral-100 hover:border hover:border-white text-xl rounded-full mx-auto block my-10 font-bold" onclick="openLeadForm()">Plan
+                Your Honeymoon</button>
         </div>
     </section>
 
