@@ -65,8 +65,9 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function() {
 Route::controller(WebsiteController::class)->group(function () {
     Route::get('/', 'home')->name('home');
     Route::get('/about', 'about')->name('about');
-    Route::get('/contact-us', 'contactUs')->name('contact');
-    Route::get('/destinations/{slug}', 'destination')->name('destination');
+    Route::get('/destinations', 'destinations')->name('destinations');
+    Route::get('/contact', 'contact')->name('contact');
+    Route::get('/destinations/{slug}', 'showDestination')->name('showDestination');
     Route::get('/package/{slug}', 'package')->name('package');
     Route::post('/lead', 'storeLead')->name('storeLead');
     Route::fallback('notFound'); // Catch-all route for 404 errors

@@ -48,7 +48,6 @@ class PackageController extends Controller
      */
     public function store(StorePackageRequest $request)
     {
-        dd($request->all());
         // Handle image upload
         if ($request->hasFile('image')) {
             // Get the file name with extension

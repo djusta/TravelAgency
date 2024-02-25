@@ -2,12 +2,12 @@
     <div class="container mx-auto flex justify-between items-center">
         <div class="flex items-center">
             <img src="{{ asset('logo.png') }}" alt="{{ config('app.name') }}" srcset="" class="w-16 mr-5">
-            <a href="{{ route('home') }}" class="text-white text-3xl font-bold">{{ config('app.name', 'Travel Agency') }}</a>
+            <a href="{{ route('home') }}" class="text-white text-3xl font-bold font-serif">{{ config('app.name', 'Travel Agency') }}</a>
         </div>
         <div class="hidden md:flex space-x-4">
             <a href="{{ route('home') }}" class="text-white">Home</a>
             <a href="{{ route('about') }}" class="text-white">About</a>
-            <a href="/123" class="text-white">Services</a>
+            <a href="{{ route('destinations') }}" class="text-white">Destinations</a>
             <a href="{{ route('contact') }}" class="text-white">Contact</a>
         </div>
         <div class="md:hidden">

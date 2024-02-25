@@ -62,7 +62,18 @@ class WebsiteController extends Controller
         return view('pages.about', compact('counter', 'whyCards'));
     }
 
-    public function destination($slug): View
+    public function contact(): View
+    {
+        return view('pages.contact');
+    }
+
+    public function destinations(): View
+    {
+        $destinations = Destination::withCount('packages')->get();
+        return view('pages.destinations', compact('destinations'));
+    }
+
+    public function showDestination($slug): View
     {
         $destination = Destination::where('slug', $slug)->first();
         $packages = $destination->packages()->get();
