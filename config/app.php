@@ -17,8 +17,8 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
-    'primary_contact' => '9459877333',
-    'leads_email' => 'leads@yourtravellingpartner.com',
+    'primary_contact' => env('PRIMARY_CONTACT', '9459877333'),
+    'leads_email' => env('LEAD_EMAIL', 'djusta06@gmail.com'),
 
     /*
     |--------------------------------------------------------------------------
