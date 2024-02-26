@@ -50,7 +50,7 @@
             <h3 class="text-center text-4xl text-white font-bold mb-9">Didn't Find What You Want?</h3>
             <p class="text-center text-2xl text-white font-semibold font-serif mb-5">Our Tour Experts Are Here To Help.</p>
             <div class="text-center">
-                <a class="py-2 px-4 mx-2 bg-indigo-800 hover:bg-indigo-900 text-white text-xl font-bold rounded-xl" href="">Call Us Now</a> <a class="py-2 px-4 mx-2 bg-indigo-800 hover:bg-indigo-900 text-white text-xl font-bold rounded-xl" href="">Send a Mail</a>
+                <a class="py-2 px-4 mx-2 bg-indigo-800 hover:bg-indigo-900 text-white text-xl font-bold rounded-xl" href="tel:{{ config('app.primary_contact') }}">Call Us Now</a> <a class="py-2 px-4 mx-2 bg-indigo-800 hover:bg-indigo-900 text-white text-xl font-bold rounded-xl" href="mailto:{{ config('app.leads_email') }}">Send a Mail</a>
             </div>
         </div>
     </section>
@@ -104,8 +104,8 @@
     </footer>
 
     <div class="fixed bottom-2 right-2">
-        <a href="https://wa.me/+91{{ config('app.primary_contact') }}" target="_blank" rel="noopener noreferrer" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded shadow md:text-2xl">
-            <i class="fab fa-whatsapp mr-2"></i> Chat on WhatsApp
+        <a href="https://wa.me/+91{{ config('app.primary_contact') }}" target="_blank" rel="noopener noreferrer" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded shadow text-xl md:text-2xl">
+            <i class="fab fa-whatsapp md:mr-2"></i> <span class="hidden md:inline-block">Chat on WhatsApp</span>
         </a>
     </div>
 @endsection
