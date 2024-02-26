@@ -3,7 +3,7 @@
 @section('title', $landingPage->title)
 
 @section('content')
-    <section class="min-h-screen flex flex-col bg-cover bg-fixed bg-black bg-opacity-30 bg-blend-overlay" style="background-image: url('https://img.freepik.com/free-photo/beautiful-girl-standing-boat-looking-mountains-ratchaprapha-dam-khao-sok-national-park-surat-thani-province-thailand_335224-849.jpg?w=1060&t=st=1708257808~exp=1708258408~hmac=09d3a958e7fe6aacde8f12926d546382b4f3276988140e12f8c5e4d52920222b')">
+    <section class="min-h-screen flex flex-col bg-cover bg-fixed bg-black bg-opacity-30 bg-blend-overlay" style="background-image: url('{{ asset('images/1094.jpg') }}')">
         <div class="bg-black bg-opacity-50 p-2">
             <nav class="flex items-center justify-center">
                 <img src="{{ asset('logo.png') }}" alt="" srcset="" class="w-20">
