@@ -23,7 +23,7 @@ class UpdatePackageRequest extends FormRequest
     {
         return [
             'name' => 'sometimes|required|string',
-            // 'slug' => 'sometimes|required|string|unique:packages,slug,' . $this->route('package')->id,
+            'slug' => 'sometimes|required|string|unique:packages,slug,' . $this->route('package')->id,
         ];
     }
 }

@@ -8,7 +8,7 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
 
     <title>@yield('title', config('app.name'))</title>
-    @vite('resources/css/app.css')
+    @vite(['resources/css/app.css'])
 
     @stack('styles')
 </head>
@@ -27,7 +27,7 @@
     <x-widgets.main-lead-modal />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    @vite('resources/js/app.js')
+    @vite(['resources/js/app.js'])
 
     <script>
         function openLeadForm(package = null) {
