@@ -14,8 +14,9 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('admin.packages.store') }}" method="post">
+            <form action="{{ route('admin.packages.update', ['package' => $package->id]) }}" method="post">
                 @csrf
+                @method('PUT')
                 <div class="row">
                     <div class="col-md-4">
                         <x-forms.input label="Package Name" name="name" type="text"

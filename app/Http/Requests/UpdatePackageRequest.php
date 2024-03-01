@@ -11,7 +11,7 @@ class UpdatePackageRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,8 @@ class UpdatePackageRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'sometimes|required|string',
+            'slug' => 'sometimes|required|string|unique:packages,slug,' . $this->route('package')->id,
         ];
     }
 }

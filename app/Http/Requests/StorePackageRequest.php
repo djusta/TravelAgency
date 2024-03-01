@@ -35,7 +35,7 @@ class StorePackageRequest extends FormRequest
         return [
             'name'=> 'required',
             'slug' => 'required|string|unique:packages,slug',
-            'duration' => 'nullable-'
+            'duration' => 'nullable'
         ];
     }
 }

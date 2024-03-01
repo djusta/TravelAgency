@@ -7,6 +7,7 @@ use App\Http\Requests\StorePackageRequest;
 use App\Http\Requests\UpdatePackageRequest;
 use App\Models\Destination;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -98,7 +99,32 @@ class PackageController extends Controller
      */
     public function update(UpdatePackageRequest $request, Package $package)
     {
-        //
+        // Update destination attributes
+        $package->update([
+            'name' => $request->name,
+            'slug' => $request->slug,
+            'duration' => $request->duration,
+            'price' => $request->price,
+            'description' => $request->description
+        ]);
+
+        // Handle image upload
+        if ($request->hasFile('image')) {
+            // Delete the old image if it exists
+            if ($package->image) {
+                Storage::delete('public/uploads/' . $package->image);
+            }
+            // Get the file name with extension
+            $imageName = Str::uuid() . '.' . $request->file('image')->getClientOriginalExtension();
+            // Store the image in the storage folder (public/uploads) and get the path
+            $imagePath = $request->file('image')->storeAs('public/uploads', $imageName);
+            // Update the image path in the destination model
+            $package->update(['image' => $imageName]);
+        }
+
+        $package->destinations()->sync($request->input('destinations', []));
+
+        return back();
     }
 
     /**
