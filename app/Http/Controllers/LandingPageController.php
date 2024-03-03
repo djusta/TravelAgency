@@ -111,12 +111,13 @@ class LandingPageController extends Controller
     {
         $landingPage = LandingPage::where('slug', $slug)->first();
 
-        $packages = $landingPage->packages;
+        $packages = $landingPage->packages()->with('itineraries')->get();
 
         if ($landingPage->template == 1) {
             return view('landing-pages.templates.template-1', compact('landingPage', 'packages'));
         }
         else if ($landingPage->template == 2) {
+            // dd($packages->find(20));
             return view('landing-pages.templates.template-2', compact('landingPage', 'packages'));
         } else {
             return 'NO Template';

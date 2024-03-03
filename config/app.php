@@ -19,6 +19,9 @@ return [
     'name' => env('APP_NAME', 'Laravel'),
     'primary_contact' => env('PRIMARY_CONTACT', '9459877333'),
     'leads_email' => env('LEAD_EMAIL', 'djusta06@gmail.com'),
+    'facebook' => env('FACEBOOK_LINK', 'https://www.facebook.com/'),
+    'instagram' => env('INSTAGRAM_LINK', 'https://www.instagram.com/'),
+    'youtube' => env('YOUTUBE_LINK', 'https://www.youtube.com/'),
 
     /*
     |--------------------------------------------------------------------------
