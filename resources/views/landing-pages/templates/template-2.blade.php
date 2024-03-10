@@ -149,7 +149,7 @@
     <div id="itineraryModal"
         class="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 hidden overflow-y-scroll">
         <div class="bg-white p-6 rounded-md shadow-md relative max-w-4xl">
-            <button id="closeItineraryModalBtn" class="absolute top-0 right-0 p-2 cursor-pointer" onclick="closeItineraryModal()">
+            <button id="closeItineraryModalBtn" class="absolute top-0 right-0 p-2 cursor-pointer" onclick="closeItineraryModal()" title="Close">
                 <svg class="h-6 w-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">

@@ -1,7 +1,7 @@
 <!-- Travel Lead Form Modal -->
 <div id="leadModal" class="fixed top-0 left-0 w-full p-2 h-full flex items-center justify-center bg-black bg-opacity-50 hidden">
     <div class="bg-white p-6 rounded-md shadow-md relative max-w-2xl">
-        <button id="closeTravelLeadBtn" class="absolute top-0 right-0 p-2 cursor-pointer">
+        <button id="closeTravelLeadBtn" class="absolute top-0 right-0 p-2 cursor-pointer" title="Close">
             <svg class="h-6 w-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -13,29 +13,30 @@
             @csrf
             <div class="flex flex-wrap">
                 <input type="hidden" name="your_name">
+                <input type="hidden" name="user_location" id="user_location">
                 <div class="px-2 mb-4 w-full">
                     <label for="package" class="block text-sm font-medium text-gray-600">Package Name:</label>
-                    <input type="text" id="package" name="package" placeholder="Package"
+                    <input type="text" id="package" name="package" placeholder="Package" autocomplete="off"
                         class="mt-1 p-2 border rounded-md w-full">
                 </div>
                 <div class="px-2 mb-4 w-full">
                     <label for="name" class="block text-sm font-medium text-gray-600">Full Name:</label>
-                    <input type="text" id="name" name="name" placeholder="Enter Your Full Name"
+                    <input type="text" id="name" name="name" placeholder="Enter Your Full Name" autocomplete="off" 
                         class="mt-1 p-2 border rounded-md w-full">
                 </div>
                 <div class="px-2 mb-4 w-1/2">
                     <label for="email" class="block text-sm font-medium text-gray-600">Email Address:</label>
-                    <input type="email" id="email" name="email" placeholder="Enter Your Email Address"
+                    <input type="email" id="email" name="email" placeholder="Enter Your Email Address" autocomplete="off" 
                         class="mt-1 p-2 border rounded-md w-full">
                 </div>
                 <div class="px-2 mb-4 w-1/2">
                     <label for="contact" class="block text-sm font-medium text-gray-600">Phone Number:</label>
-                    <input type="text" id="contact" name="contact" placeholder="Enter Your Contact Number"
+                    <input type="text" id="contact" name="contact" placeholder="Enter Your Contact Number" autocomplete="off" 
                         class="mt-1 p-2 border rounded-md w-full">
                 </div>
                 <div class="px-2 mb-4 w-full">
                     <label for="message" class="block text-sm font-medium text-gray-600">Message:</label>
-                    <textarea id="message" name="message" placeholder="Enter Your Message"
+                    <textarea id="message" name="message" placeholder="Enter Your Message" autocomplete="off" 
                         class="mt-1 p-2 border rounded-md w-full"></textarea>
                 </div>
                 <div class="px-2 w-full mt-3">

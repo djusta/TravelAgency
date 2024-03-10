@@ -106,7 +106,8 @@ class WebsiteController extends Controller
             'email' => $request->email,
             'contact' => $request->contact,
             'message' => $request->message,
-            'source' => $request->headers->get('referer')
+            'source' => $request->headers->get('referer'),
+            'user_location' => $request->user_location
         ]);
     }
 
