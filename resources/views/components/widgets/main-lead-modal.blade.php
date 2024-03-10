@@ -12,6 +12,7 @@
         <form id="travelLeadForm" action="{{ isset($action) ? $action : route('storeLead') }}" method="post">
             @csrf
             <div class="flex flex-wrap">
+                <input type="hidden" name="your_name">
                 <div class="px-2 mb-4 w-full">
                     <label for="package" class="block text-sm font-medium text-gray-600">Package Name:</label>
                     <input type="text" id="package" name="package" placeholder="Package"

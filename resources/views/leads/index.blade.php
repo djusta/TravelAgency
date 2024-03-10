@@ -22,6 +22,7 @@
                         <th>Contact No</th>
                         <th>Email</th>
                         <th>Status</th>
+                        <th>Created At</th>
                         <th width="105px">Action</th>
                     </tr>
                 </thead>
@@ -33,6 +34,8 @@
 @endsection
 
 @push('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
     <script type="text/javascript">
         $(function() {
             const table = $('.data-table').DataTable({
@@ -61,12 +64,29 @@
                         name: 'status'
                     },
                     {
+                        data: 'created_at',
+                        name: 'created_at',
+                        render: function(data) {
+                            // Format the date
+                            return moment(data).format(
+                                'DD-MMM-y HH:mm:ss'); // Adjust the format as needed
+                        }
+                    },
+                    {
                         data: 'action',
                         name: 'action',
                         orderable: false,
                         searchable: false
                     },
+                ],
+                order: [
+                    [5, 'desc'] // Default ordering by the 'created_at' column in descending order
                 ]
+            });
+
+            // Log the data received from the server
+            table.on('xhr', function() {
+                console.log(table.ajax.json());
             });
         });
 

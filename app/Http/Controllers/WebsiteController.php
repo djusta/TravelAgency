@@ -97,6 +97,10 @@ class WebsiteController extends Controller
 
     public function storeLead(Request $request)
     {
+        if ($request->filled('your_name')){
+            dd('Hello Bot');
+        }
+        
         $lead = Lead::create([
             'name' => $request->name,
             'email' => $request->email,
