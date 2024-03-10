@@ -54,6 +54,10 @@
                             <th>Source</th>
                             <td>{{ $lead->source }}</td>
                         </tr>
+                        <tr>
+                            <th>User Location</th>
+                            <td>{{ $lead->user_location }}</td>
+                        </tr>
                     </table>
                 </div>
             </div>
@@ -67,7 +71,7 @@
                     <table class="table">
                         <tr>
                             <th>Package</th>
-                            <td>{{ $lead->package_id }}</td>
+                            <td>{{ $lead->package_name }}</td>
                         </tr>
                         <tr>
                             <th>Message</th>

@@ -21,12 +21,12 @@
                 </div>
                 <div class="px-2 mb-4 w-full">
                     <label for="name" class="block text-sm font-medium text-gray-600">Full Name:</label>
-                    <input type="text" id="name" name="name" placeholder="Enter Your Full Name" autocomplete="off" 
+                    <input type="text" id="name" name="name" placeholder="Enter Your Full Name" autocomplete="name" 
                         class="mt-1 p-2 border rounded-md w-full">
                 </div>
                 <div class="px-2 mb-4 w-1/2">
                     <label for="email" class="block text-sm font-medium text-gray-600">Email Address:</label>
-                    <input type="email" id="email" name="email" placeholder="Enter Your Email Address" autocomplete="off" 
+                    <input type="email" id="email" name="email" placeholder="Enter Your Email Address" autocomplete="email" 
                         class="mt-1 p-2 border rounded-md w-full">
                 </div>
                 <div class="px-2 mb-4 w-1/2">

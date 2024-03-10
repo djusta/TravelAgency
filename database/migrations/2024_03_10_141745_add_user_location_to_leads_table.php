@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::table('leads', function (Blueprint $table) {
             $table->string('user_location')->nullable()->after('source');
+            $table->string('package_name')->nullable()->after('package_id');
         });
     }
 
@@ -23,6 +24,7 @@ return new class extends Migration
     {
         Schema::table('leads', function (Blueprint $table) {
             $table->dropColumn('user_location');
+            $table->dropColumn('package_name');
         });
     }
 };

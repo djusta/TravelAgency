@@ -18,7 +18,7 @@ class LeadObserver
         Mail::to(config('app.leads_email'))->send(new NewLeadNotification($lead));
         
         // Send email confirmation to customer
-        // Mail::to($lead->email)->send(new LeadConfirmation($lead));
+        Mail::to($lead->email)->send(new LeadConfirmation($lead));
     }
 
     /**
