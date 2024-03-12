@@ -4,7 +4,7 @@
 
 @section('content')
     <section id="main">
-        <div class="container mx-auto flex flex-row px-2 py-20">
+        <div class="container mx-auto flex flex-wrap px-2 py-20">
             <div class="w-full md:w-1/2 p-2 flex items-center">
                 <img src="https://img.freepik.com/free-photo/hiker-going-up-aiguille-du-midi_53876-139593.jpg?w=1060&t=st=1707927770~exp=1707928370~hmac=ff87936ca58dc8a0b4a995f2162f2be1cd9b1ea108dcd9764d1df3211dfcfad6"
                     alt="" srcset="">
@@ -32,7 +32,7 @@
     <section id="why" class="bg-indigo-200 py-20">
         <div class="container mx-auto">
             <h2 class="text-center text-4xl font-bold font-serif mb-5 text-indigo-700">Why Choose Us?</h2>
-            <div class="grid grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 @foreach ($whyCards as $card)
                     <div class="card">
                         <h3 class="text-center font-semibold text-3xl text-indigo-500 mb-2">{{ $card['title'] }}</h3>
@@ -45,7 +45,7 @@
     <section id="counter"
         style="background-image: url('https://img.freepik.com/free-photo/businessman-holding-luggage-waiting-airport-arrival-generated-by-ai_188544-39330.jpg?t=st=1707928605~exp=1707932205~hmac=57e53442b6f63aa8c24be2dab75c8033783bd0017acc76099632b7d1ffef8f9b&w=1380')"
         class="py-20 bg-cover bg-blend-overlay bg-slate-700">
-        <div class="container mx-auto grid grid-cols-4 gap-5 text-neutral-200">
+        <div class="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-5 text-neutral-200">
             @foreach ($counter as $item)
                 <div>
                     <p class="text-5xl text-center font-extrabold">{!! $item['number'] !!}</p>

@@ -11,7 +11,7 @@
                 <p class="mb-8 leading-relaxed">Welcome to {{ config('app.name') }}, where dreams take flight! Discover bespoke travel experiences tailored just for you. From exotic escapes to cultural odysseys, we're here to make your wanderlust a reality. Contact us today and let the adventure begin!</p>
                 <div class="flex justify-center">
                     <button
-                        class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Send Enquiry</button>
+                        class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg" onclick="openLeadForm()">Send Enquiry</button>
                     <a href="tel:{{ config('app.primary_contact') }}"
                         class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Call Us Now!</a>
                 </div>
@@ -24,7 +24,7 @@
 
     <section id="destinations" class="py-16">
         <div class="container mx-auto">
-            <h2 class="text-5xl text-center font-semibold mb-10 text-blue-500">Poplular Destinations</h2>
+            <h2 class="text-5xl text-center font-semibold mb-10 text-blue-500 font-serif">Poplular Destinations</h2>
             <div class="destination-cards flex flex-wrap">
 
                 @foreach ($popularDestinations as $destination)

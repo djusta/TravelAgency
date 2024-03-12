@@ -22,8 +22,20 @@
     </div>
 </nav>
 <div id="mobile-menu" class="md:hidden hidden bg-white p-4">
-    <a href="#" class="block text-gray-800 mb-2">Home</a>
-    <a href="#" class="block text-gray-800 mb-2">About</a>
-    <a href="#" class="block text-gray-800 mb-2">Services</a>
-    <a href="#" class="block text-gray-800">Contact</a>
+    <a href="{{ route('home') }}" class="block text-gray-800 mb-2">Home</a>
+    <a href="{{ route('about') }}" class="block text-gray-800 mb-2">About</a>
+    <a href="{{ route('destinations') }}" class="block text-gray-800 mb-2">Destinations</a>
+    <a href="{{ route('contact') }}" class="block text-gray-800">Contact</a>
 </div>
+
+<!-- Add this script at the end of your HTML body or in your JavaScript file -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        mobileMenuBtn.addEventListener("click", function () {
+            mobileMenu.classList.toggle("hidden");
+        });
+    });
+</script>

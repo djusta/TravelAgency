@@ -17,18 +17,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call([
-            DestinationSeeder::class,
-            PackageSeeder::class,
-            TestimonialSeeder::class,
-            RoleSeeder::class
-        ]);
-
         User::create([
             "name" => "Super Admin",
             "email" => "super@mail.com",
             "role_id" => 3,
             "password" => bcrypt("Pass@123")
         ]);
+
+        $this->call([
+            // DestinationSeeder::class,
+            // PackageSeeder::class,
+            // TestimonialSeeder::class,
+            // RoleSeeder::class
+        ]);
+
+        
     }
 }

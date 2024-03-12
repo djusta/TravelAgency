@@ -6,7 +6,7 @@ use App\Models\Destination;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class DestinationSeeder extends Seeder
+class MainSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -41,18 +41,6 @@ class DestinationSeeder extends Seeder
                 'excerpt' => 'Experience the backwaters of Kerala.',
                 'description' => 'Kerala, located on the southwestern coast of India, is famous for its tranquil backwaters, lush greenery, and Ayurvedic treatments.'
             ],
-
-            [
-                'name' => 'Uttarakhand', 'slug' => 'uttarakhand',
-                'excerpt' => 'Discover the beauty of Uttarakhand.',
-                'description' => 'Uttarakhand, situated in the Himalayan region of India, is known for its picturesque landscapes, spiritual sites, and adventure sports.'
-            ],
-
-            [
-                'name' => 'Jammu and Kashmir', 'slug' => 'jammu-and-kashmir',
-                'excerpt' => 'Experience the heaven on earth in Jammu and Kashmir.',
-                'description' => 'Jammu and Kashmir, often referred to as "Paradise on Earth," is known for its breathtaking landscapes, serene lakes, and rich cultural heritage.'
-            ],
         ];
 
         foreach ($states as $stateData) {
@@ -63,16 +51,8 @@ class DestinationSeeder extends Seeder
                 $state->childDestinations()->createMany([
                     ['name' => 'Shimla', 'type' => 'city', 'slug' => 'shimla', 'excerpt' => 'Explore the capital city of Himachal Pradesh.', 'description' => 'Shimla, the capital city of Himachal Pradesh, is famous for its colonial architecture, scenic beauty, and adventure sports.'],
                     ['name' => 'Manali', 'type' => 'city', 'slug' => 'manali', 'excerpt' => 'Experience adventure sports in Manali.', 'description' => 'Manali is a popular hill station in Himachal Pradesh known for its scenic beauty, snow-capped mountains, and adventure sports opportunities.'],
-                ]);
-            } elseif ($state->name === 'Goa') {
-                $state->childDestinations()->createMany([
-                    ['name' => 'Panaji', 'type' => 'city', 'slug' => 'panaji', 'excerpt' => 'Explore the capital city of Goa.', 'description' => 'Panaji, the capital city of Goa, is known for its Portuguese colonial architecture, vibrant markets, and scenic riverfront.'],
-                    ['name' => 'Margao', 'type' => 'city', 'slug' => 'margao', 'excerpt' => 'Discover the culture of South Goa in Margao.', 'description' => 'Margao is a bustling town in South Goa known for its rich cultural heritage, historic buildings, and bustling markets.'],
-                ]);
-            } elseif ($state->name === 'Kerala') {
-                $state->childDestinations()->createMany([
-                    ['name' => 'Kochi', 'type' => 'city', 'slug' => 'kochi', 'excerpt' => 'Explore the historic city of Kochi.', 'description' => 'Kochi, also known as Cochin, is a historic port city in Kerala known for its rich cultural heritage, ancient landmarks, and bustling markets.'],
-                    ['name' => 'Thiruvananthapuram', 'type' => 'city', 'slug' => 'thiruvananthapuram', 'excerpt' => 'Experience the capital city of Kerala.', 'description' => 'Thiruvananthapuram, the capital city of Kerala, is known for its colonial architecture, vibrant culture, and beautiful beaches.'],
+                    ['name' => 'Dharamshala', 'type' => 'city', 'slug' => 'dharamshala', 'excerpt' => 'Explore the serene town of Dharamshala.', 'description' => 'Dharamshala is a serene town in Himachal Pradesh known for its Tibetan culture, picturesque landscapes, and spiritual atmosphere.'],
+                    ['name' => 'Dalhousie', 'type' => 'city', 'slug' => 'dalhousie', 'excerpt' => 'Discover the tranquility of Dalhousie.', 'description' => 'Dalhousie is a charming hill station in Himachal Pradesh known for its colonial architecture, scenic beauty, and pleasant climate.'],
                 ]);
             }
         }

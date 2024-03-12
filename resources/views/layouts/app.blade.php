@@ -31,7 +31,9 @@
 
     <script>
         function openLeadForm(package = null) {
-            $('#package').val(package.name);
+            if (package) {
+                $('#package').val(package.name);
+            }
             $('#leadModal').removeClass('hidden');
         }
     </script>

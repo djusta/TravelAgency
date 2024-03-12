@@ -14,8 +14,9 @@ class WebsiteController extends Controller
     public function home(): View
     {
         $popularDestinations = Destination::whereIn('type', ['city'])
-            // ->has('packages')
+            ->has('packages')
             ->withCount('packages')
+            ->inRandomOrder()
             ->take(3)
             ->get();
 
@@ -69,7 +70,7 @@ class WebsiteController extends Controller
 
     public function destinations(): View
     {
-        $destinations = Destination::withCount('packages')->get();
+        $destinations = Destination::withCount('packages')->whereNot('type', 'country')->get();
         return view('pages.destinations', compact('destinations'));
     }
 
