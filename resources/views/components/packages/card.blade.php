@@ -7,7 +7,7 @@
             <div class="font-bold text-xl mb-2">{{ $package->name }}</div>
             <p class="text-gray-700 text-base">
                 @if ($package->description)
-                    {{ $package?->description }}
+                {{ strlen($package->description) > 100 ? substr($package->description, 0, 100) . '...' : $package->description }}
                 @else
                 Lorem ipsum dolor sit amet consectetur adipisicing
                 elit. Labore tempore ullam animi officiis quasi laudantium consequuntur laborum. Enim omnis doloribus hic,
