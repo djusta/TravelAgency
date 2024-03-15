@@ -181,7 +181,7 @@
             <i class="fab fa-whatsapp md:mr-2"></i> <span class="hidden md:inline-block">Chat on WhatsApp</span>
         </a>
     </div> --}}
-    <div class="fixed bottom-0 w-full grid grid-cols-2">
+    <div class="fixed bottom-0 w-full grid grid-cols-2 md:hidden">
         <div class="bg-green-600">
             <a href="https://wa.me/+91{{ config('app.primary_contact') }}" target="_blank" rel="noopener noreferrer"
                 class="text-white font-bold py-2 px-4 rounded shadow text-2xl">

@@ -371,4 +371,164 @@ class ItinerarySeeder extends Seeder
     //         'description' => 'After breakfast, check out from the hotel and proceed for your onward journey. End of the memorable trip to Manali.'
     //     ]);
     // }
+
+    /**
+     * Shimla 3 Nights 4 Days
+     */
+    // public function run()
+    // {
+    //     $packageId = 1; // Update with your package ID
+
+    //     // Itinerary for Day 1: Arrival in Shimla
+    //     Itinerary::create([
+    //         'package_id' => $packageId,
+    //         'order' => 1,
+    //         'title' => 'Arrival in Shimla',
+    //         'description' => 'Arrive in Shimla and check into your hotel. Spend the day at leisure, exploring the local markets and enjoying the scenic beauty of Shimla.'
+    //     ]);
+
+    //     // Itinerary for Day 2: Shimla Local Sightseeing
+    //     Itinerary::create([
+    //         'package_id' => $packageId,
+    //         'order' => 2,
+    //         'title' => 'Shimla Local Sightseeing',
+    //         'description' => 'After breakfast, proceed for local sightseeing in Shimla. Visit the famous Jakhu Temple, offering panoramic views of the surrounding hills. Explore the Ridge, a spacious open space that offers spectacular views of the mountain ranges. In the evening, return to the hotel for an overnight stay.'
+    //     ]);
+
+    //     // Itinerary for Day 3: Excursion to Kufri
+    //     Itinerary::create([
+    //         'package_id' => $packageId,
+    //         'order' => 3,
+    //         'title' => 'Excursion to Kufri',
+    //         'description' => 'After breakfast, embark on an excursion to Kufri, a picturesque hill station located near Shimla. Enjoy activities like horse riding and yak riding amidst the stunning snow-capped mountains. Visit the Himalayan Wildlife Zoo to see rare species of flora and fauna. In the evening, return to Shimla for an overnight stay.'
+    //     ]);
+
+    //     // Itinerary for Day 4: Departure from Shimla
+    //     Itinerary::create([
+    //         'package_id' => $packageId,
+    //         'order' => 4,
+    //         'title' => 'Departure from Shimla',
+    //         'description' => 'After breakfast, check out from the hotel and proceed for your onward journey. End of the memorable trip to Shimla.'
+    //     ]);
+    // }
+
+    /**
+     * Chandigarh Shimla Manali 6Nights 7 Days
+     */
+    // public function run()
+    // {
+    //     $packageId = 1; // Update with your package ID
+
+    //     // Itinerary for Day 1: Arrival in Chandigarh
+    //     Itinerary::create([
+    //         'package_id' => $packageId,
+    //         'order' => 1,
+    //         'title' => 'Arrival in Chandigarh',
+    //         'description' => 'Arrive in Chandigarh and check into your hotel. Spend the day at leisure, exploring the local attractions such as Sukhna Lake, Rock Garden, and Rose Garden.'
+    //     ]);
+
+    //     // Itinerary for Day 2: Chandigarh to Shimla
+    //     Itinerary::create([
+    //         'package_id' => $packageId,
+    //         'order' => 2,
+    //         'title' => 'Chandigarh to Shimla',
+    //         'description' => 'After breakfast, travel to Shimla by road. Check into your hotel in Shimla and relax. Spend the evening exploring the Mall Road and local markets.'
+    //     ]);
+
+    //     // Itinerary for Day 3: Shimla Local Sightseeing
+    //     Itinerary::create([
+    //         'package_id' => $packageId,
+    //         'order' => 3,
+    //         'title' => 'Shimla Local Sightseeing',
+    //         'description' => 'After breakfast, proceed for local sightseeing in Shimla. Visit Jakhu Temple, Ridge Maidan, Christ Church, and Kali Bari Temple. Return to the hotel for an overnight stay.'
+    //     ]);
+
+    //     // Itinerary for Day 4: Shimla to Manali
+    //     Itinerary::create([
+    //         'package_id' => $packageId,
+    //         'order' => 4,
+    //         'title' => 'Shimla to Manali',
+    //         'description' => 'After breakfast, travel to Manali by road. En route, visit Kullu Valley, Pandoh Dam, and Shawl Factories. Check into your hotel in Manali and spend the evening at leisure.'
+    //     ]);
+
+    //     // Itinerary for Day 5: Manali Local Sightseeing
+    //     Itinerary::create([
+    //         'package_id' => $packageId,
+    //         'order' => 5,
+    //         'title' => 'Manali Local Sightseeing',
+    //         'description' => 'After breakfast, proceed for local sightseeing in Manali. Visit Hadimba Devi Temple, Manu Temple, Vashisht Village, and Hot Water Springs. Return to the hotel for an overnight stay.'
+    //     ]);
+
+    //     // Itinerary for Day 6: Excursion to Solang Valley
+    //     Itinerary::create([
+    //         'package_id' => $packageId,
+    //         'order' => 6,
+    //         'title' => 'Excursion to Solang Valley',
+    //         'description' => 'After breakfast, embark on an excursion to Solang Valley. Enjoy adventure activities like paragliding, zorbing, and horse riding. Return to Manali for an overnight stay.'
+    //     ]);
+
+    //     // Itinerary for Day 7: Departure from Manali
+    //     Itinerary::create([
+    //         'package_id' => $packageId,
+    //         'order' => 7,
+    //         'title' => 'Departure from Manali',
+    //         'description' => 'After breakfast, check out from the hotel and proceed for your onward journey. End of the memorable trip to Chandigarh, Shimla, and Manali.'
+    //     ]);
+    // }
+
+    /**
+     * Manali Dalhousie 5 Nights 6 Days
+     */
+    // public function run()
+    // {
+    //     $packageId = 1; // Update with your package ID
+
+    //     // Itinerary for Day 1: Arrival in Manali
+    //     Itinerary::create([
+    //         'package_id' => $packageId,
+    //         'order' => 1,
+    //         'title' => 'Arrival in Manali',
+    //         'description' => 'Arrive in Manali and check into your hotel. Spend the day at leisure, exploring the local markets and enjoying the scenic beauty of Manali.'
+    //     ]);
+
+    //     // Itinerary for Day 2: Manali Local Sightseeing
+    //     Itinerary::create([
+    //         'package_id' => $packageId,
+    //         'order' => 2,
+    //         'title' => 'Manali Local Sightseeing',
+    //         'description' => 'After breakfast, proceed for local sightseeing in Manali. Visit Hadimba Devi Temple, a serene wooden temple surrounded by cedar forests. Explore the Vashisht Hot Water Springs, known for their medicinal properties. Enjoy a stroll along the Mall Road and explore the local handicrafts. In the evening, return to the hotel for an overnight stay.'
+    //     ]);
+
+    //     // Itinerary for Day 3: Excursion to Solang Valley
+    //     Itinerary::create([
+    //         'package_id' => $packageId,
+    //         'order' => 3,
+    //         'title' => 'Excursion to Solang Valley',
+    //         'description' => 'After breakfast, embark on an excursion to Solang Valley, a picturesque valley known for its stunning views and adventure activities. Enjoy activities like paragliding, zorbing, and skiing (subject to snow availability). Return to Manali in the evening and relax at the hotel.'
+    //     ]);
+
+    //     // Itinerary for Day 4: Transfer to Dalhousie
+    //     Itinerary::create([
+    //         'package_id' => $packageId,
+    //         'order' => 4,
+    //         'title' => 'Transfer to Dalhousie',
+    //         'description' => 'After breakfast, check out from the hotel in Manali and proceed for your journey to Dalhousie. On arrival, check into your hotel and spend the rest of the day at leisure, exploring the local attractions.'
+    //     ]);
+
+    //     // Itinerary for Day 5: Dalhousie Local Sightseeing
+    //     Itinerary::create([
+    //         'package_id' => $packageId,
+    //         'order' => 5,
+    //         'title' => 'Dalhousie Local Sightseeing',
+    //         'description' => 'After breakfast, proceed for local sightseeing in Dalhousie. Visit attractions like Khajjiar, often referred to as the "Mini Switzerland of India," and the picturesque Kalatop Wildlife Sanctuary. Explore the colonial architecture of Dalhousie town and enjoy panoramic views of the surrounding landscapes.'
+    //     ]);
+
+    //     // Itinerary for Day 6: Departure from Dalhousie
+    //     Itinerary::create([
+    //         'package_id' => $packageId,
+    //         'order' => 6,
+    //         'title' => 'Departure from Dalhousie',
+    //         'description' => 'After breakfast, check out from the hotel and proceed for your onward journey. End of the memorable trip to Manali and Dalhousie.'
+    //     ]);
+    // }
 }
