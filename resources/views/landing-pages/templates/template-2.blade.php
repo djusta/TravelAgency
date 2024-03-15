@@ -67,15 +67,52 @@
         </div>
     </section>
 
+    <section class="py-10">
+        <div class="container mx-auto">
+            <h3 class="text-center text-4xl text-slate-600 font-medium mb-5">What People Say About Us?</h3>
+            @php
+                $testimonials = [
+                    (object) [
+                        'content' =>
+                            'Our journey to the majestic hills of Shimla was truly enchanting. The lush greenery and crisp mountain air rejuvenated our spirits. Every moment spent in Shimla felt like a dream come true.',
+                        'author' => 'Priya Patel',
+                        'from' => 'Madhya Pradesh',
+                    ],
+                    (object) [
+                        'content' =>
+                            'Exploring the bustling streets of Delhi was an unforgettable experience. The rich history and vibrant culture of the city left us mesmerized. Our trip to Delhi was filled with delightful surprises at every turn.',
+                        'author' => 'Rajesh Kumar',
+                        'from' => 'Karnataka',
+                    ],
+                    (object) [
+                        'content' =>
+                            'Our visit to the mesmerizing city of Jaipur was nothing short of magical. From the majestic forts to the bustling bazaars, every moment in Jaipur was filled with wonder and excitement.',
+                        'author' => 'Sneha Rao',
+                        'from' => 'Telangana',
+                    ],
+                ];
+            @endphp
+            <div class="grid md:grid-cols-3">
+                @foreach ($testimonials as $testimonial)
+                    <div class="px-4 mb-2">
+                        <x-widgets.testimonial :testimonial="$testimonial" />
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
     <section>
         <div class="container mx-auto py-5">
             <div class="flex flex-wrap">
-                <div class="w-full md:w-1/3"></div>
-                <div class="w-1/2 md:w-1/3 ms-auto">
+                <div class="w-1/2 md:w-1/3 ms-auto mb-2">
                     <img src="{{ asset('images/google2.png') }}" alt="" srcset="">
                 </div>
-                <div class="w-1/2 md:w-1/3 ms-auto">
+                <div class="w-1/2 md:w-1/3 ms-auto mb-2">
                     <img src="{{ asset('images/approved.png') }}" alt="" srcset="" class="w-full">
+                </div>
+                <div class="w-1/2 md:w-1/3 mx-auto mb-2">
+                    <img src="{{ asset('images/payments2.jpg') }}" alt="" srcset="">
                 </div>
             </div>
         </div>
@@ -138,18 +175,33 @@
         </div>
     </footer>
 
-    <div class="fixed bottom-2 right-2">
+    {{-- <div class="fixed bottom-2 right-2">
         <a href="https://wa.me/+91{{ config('app.primary_contact') }}" target="_blank" rel="noopener noreferrer"
             class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded shadow text-xl md:text-2xl">
             <i class="fab fa-whatsapp md:mr-2"></i> <span class="hidden md:inline-block">Chat on WhatsApp</span>
         </a>
+    </div> --}}
+    <div class="fixed bottom-0 w-full grid grid-cols-2">
+        <div class="bg-green-600">
+            <a href="https://wa.me/+91{{ config('app.primary_contact') }}" target="_blank" rel="noopener noreferrer"
+                class="text-white font-bold py-2 px-4 rounded shadow text-2xl">
+                <i class="fab fa-whatsapp md:mr-2"></i> <span class="">Chat Now</span>
+            </a>
+        </div>
+        <div class="bg-indigo-500">
+            <a href="tel:{{ config('app.primary_contact') }}" target="_blank" rel="noopener noreferrer"
+                class="text-white font-bold py-2 px-4 rounded shadow text-2xl">
+                <i class="fas fa-phone-alt"></i> <span class="">Call Us</span>
+            </a>
+        </div>
     </div>
 
     <!-- Itinerary Modal -->
     <div id="itineraryModal"
         class="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 hidden overflow-y-scroll">
         <div class="bg-white p-6 rounded-md shadow-md relative max-w-4xl">
-            <button id="closeItineraryModalBtn" class="absolute top-0 right-0 p-2 cursor-pointer" onclick="closeItineraryModal()" title="Close">
+            <button id="closeItineraryModalBtn" class="absolute top-0 right-0 p-2 cursor-pointer"
+                onclick="closeItineraryModal()" title="Close">
                 <svg class="h-6 w-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
@@ -157,8 +209,10 @@
                 </svg>
             </button>
             <h2 class="text-2xl font-bold mb-4">Itinerary</h2>
-            <div id="itineraryContent" class="max-h-96 overflow-y-auto mb-3 px-2"></div> <!-- Add max height and overflow-y auto -->
-            <button type="button" onclick="openLeadForm()" class="px-4 py-2 bg-indigo-500 text-neutral-200">Get Free Quote!</button>
+            <div id="itineraryContent" class="max-h-96 overflow-y-auto mb-3 px-2"></div>
+            <!-- Add max height and overflow-y auto -->
+            <button type="button" onclick="openLeadForm()" class="px-4 py-2 bg-indigo-500 text-neutral-200">Get Free
+                Quote!</button>
         </div>
     </div>
 
@@ -181,7 +235,8 @@
 
             // Populate modal with itinerary
             $.each(parsedItineraries, function(index, itinerary) {
-                var title = $("<h3>").addClass("text-lg font-semibold").text('Day '+ day++ + ': '+itinerary.title);
+                var title = $("<h3>").addClass("text-lg font-semibold").text('Day ' + day++ + ': ' + itinerary
+                    .title);
                 var description = $("<p>").addClass("text-gray-700 mb-2 text-justify").text(itinerary.description);
                 itineraryContent.append(title).append(description);
             });
