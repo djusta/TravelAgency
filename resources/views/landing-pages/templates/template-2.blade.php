@@ -256,14 +256,6 @@
         }
     </script>
 
-
-    <!-- Event snippet for YTP Himachal conversion page -->
-    <script>
-        gtag('event', 'conversion', {
-            'send_to': 'AW-10904051351/LJKLCK71vpwZEJe9us8o'
-        });
-    </script>
-
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10904051351"></script>
     <script>
@@ -275,5 +267,11 @@
         gtag('js', new Date());
 
         gtag('config', 'AW-10904051351');
+    </script>
+    <!-- Event snippet for YTP Himachal conversion page -->
+    <script>
+        gtag('event', 'conversion', {
+            'send_to': 'AW-10904051351/LJKLCK71vpwZEJe9us8o'
+        });
     </script>
 @endpush
