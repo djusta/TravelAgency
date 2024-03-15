@@ -32,7 +32,7 @@
                 <div class="px-2 mb-4 w-1/2">
                     <label for="contact" class="block text-sm font-medium text-gray-600">Phone Number:</label>
                     <input type="text" id="contact" name="contact" placeholder="Enter Your Contact Number" autocomplete="off" 
-                        class="mt-1 p-2 border rounded-md w-full">
+                        class="mt-1 p-2 border rounded-md w-full" maxlength="10" required>
                 </div>
                 <div class="px-2 mb-4 w-full">
                     <label for="message" class="block text-sm font-medium text-gray-600">Message:</label>
