@@ -255,4 +255,25 @@
             body.removeClass('overflow-hidden'); // Enable scrolling of underlying page
         }
     </script>
+
+
+    <!-- Event snippet for YTP Himachal conversion page -->
+    <script>
+        gtag('event', 'conversion', {
+            'send_to': 'AW-10904051351/LJKLCK71vpwZEJe9us8o'
+        });
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10904051351"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'AW-10904051351');
+    </script>
 @endpush
