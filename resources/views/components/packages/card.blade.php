@@ -27,7 +27,7 @@
         <div class="flex justify-between">
             <div class="px-6 py-4">
                 <div class="text-xl font-bold text-gray-800">&#x20B9;{{ $package->price }}</div>
-                <p class="text-gray-600">per couple</p>
+                {{-- <p class="text-gray-600">per couple</p> --}}
             </div>
             <div class="px-6 py-4">
                 {{-- <a href="{{ route('package', ['slug' => $package->slug]) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded-full">View Details</a> --}}

@@ -98,7 +98,8 @@ class WebsiteController extends Controller
 
     public function storeLead(Request $request)
     {
-        if ($request->filled('your_name')){
+        $source = $request->headers->get('referer');
+        if ($request->filled('your_name') || str_contains($source, 'YTP/blog/trip')){
             dd('Hello Bot');
         }
         
@@ -108,7 +109,7 @@ class WebsiteController extends Controller
             'contact' => $request->contact,
             'message' => $request->message,
             'package_name' => $request->package,
-            'source' => $request->headers->get('referer'),
+            'source' => $source,
             'user_location' => $request->user_location
         ]);
     }

@@ -138,7 +138,7 @@ class LandingPageController extends Controller
             'contact' => $request->contact,
             'message' => $request->message,
             'package_name' => $request->package,
-            'source' => $request->headers->get('referer'),
+            'source' => $source,
             'user_location' => $request->user_location
         ]);
 
