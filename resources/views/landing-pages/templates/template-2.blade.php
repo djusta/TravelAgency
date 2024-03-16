@@ -255,7 +255,9 @@
             body.removeClass('overflow-hidden'); // Enable scrolling of underlying page
         }
     </script>
+@endpush
 
+@push('styles')
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10904051351"></script>
     <script>
