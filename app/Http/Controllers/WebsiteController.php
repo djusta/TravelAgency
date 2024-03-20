@@ -99,7 +99,7 @@ class WebsiteController extends Controller
     public function storeLead(Request $request)
     {
         $source = $request->headers->get('referer');
-        if ($request->filled('your_name') || str_contains($source, 'YTP/blog/trip')){
+        if ($request->filled('your_name') || str_contains($source, 'YTP/blog/trip') || str_contains($source, 'public/blogs/hadimba-devi-temple')){
             dd('Hello Bot');
         }
         
