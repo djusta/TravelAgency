@@ -2,6 +2,8 @@
 
 @section('title', $landingPage->title)
 
+@section('description', $landingPage->meta_description)
+
 @section('content')
     <section class="min-h-screen flex flex-col bg-cover bg-fixed bg-black bg-opacity-30 bg-blend-overlay"
         style="background-image: url('{{ asset('images/1094.jpg') }}')">
