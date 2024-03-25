@@ -128,7 +128,7 @@ class LandingPageController extends Controller
     {
 
         $source = $request->headers->get('referer');
-        if ($request->filled('your_name') || str_contains($source, 'YTP/blog/trip') || str_contains($source, 'public/blogs/hadimba-devi-temple')){
+        if ($request->filled('your_name') || str_contains($source, 'YTP/blog/trip') || str_contains($source, '/public/blogs/')){
             dd('Hello Bot');
         }
 
@@ -136,6 +136,8 @@ class LandingPageController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'contact' => $request->contact,
+            'adult' => $request->adult,
+            'travel_date' => $request->travel_date,
             'message' => $request->message,
             'package_name' => $request->package,
             'source' => $source,

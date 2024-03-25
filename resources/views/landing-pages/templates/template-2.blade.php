@@ -15,8 +15,11 @@
         </div>
         <div class="container mx-auto flex-1 flex items-center justify-center">
             <div>
-                <h1 class="text-center text-5xl text-white font-extrabold font-serif mb-5">{{ $landingPage->title }}</h1>
-                <p class="text-center text-white mb-5 max-w-4xl bg-black bg-opacity-50 p-4 rounded-xl">Are you ready to
+                <h1 class="text-center p-3 text-3xl md:text-5xl text-white font-extrabold font-serif mb-5">
+                    {{ $landingPage->title }}</h1>
+                <p
+                    class="text-center hidden md:block text-white mb-5 max-w-4xl bg-black bg-opacity-50 p-4 rounded-xl mx-auto">
+                    Are you ready to
                     embark on your next unforgettable journey? At {{ config('app.name') }}, we specialize in curating
                     personalized travel experiences tailored to your desires. From exploring exotic destinations to crafting
                     unique itineraries, our team of experts is dedicated to making your travel dreams a reality. With our
@@ -102,6 +105,18 @@
                 @endforeach
             </div>
         </div>
+    </section>
+
+    <section class="py-6 bg-black text-white text-center">
+        <h4 class="text center text-2xl font-serif mb-3">Other Packages You May Like.</h4>
+        <p class="container px-3 mx-auto text-justify">Manali Tour Packages | Shimla Manali Tour Package | Manali Trip
+            Package | Kullu Manali Tour Package | Manali Package | Manali Travel Package | Manali Trip | Manali Holiday
+            Package | Kullu Manali Travel Package | Shimla Manali Tour Package from Shimla | Manali Tour Package from Manali
+            | Kullu Manali Holiday Package | Trip to Manali Package | Himachal Tour Package from Shimla | Manali Holiday
+            Tour Packages | Manali India Tour Packages | Manali Tour & Travel Packages | Manali Tour and Packages | Manali
+            Tour and Travel Packages | Manali Trip Tour Packages</p>
+        <button class="px-4 py-2 bg-white text-black block rounded-md mx-auto" onclick="openLeadForm()">Get Free
+            Quote</button>
     </section>
 
     <section>
@@ -222,6 +237,10 @@
 
 @push('scripts')
     <script>
+        setTimeout(() => {
+            openLeadForm();
+        }, 15 * 1000);
+
         // Function to open modal
         function openItineraryModal(packageName, itineraries) {
             var modal = $("#itineraryModal");

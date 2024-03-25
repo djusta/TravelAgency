@@ -1,5 +1,6 @@
 <!-- Travel Lead Form Modal -->
-<div id="leadModal" class="fixed top-0 left-0 w-full p-2 h-full flex items-center justify-center bg-black bg-opacity-50 hidden">
+<div id="leadModal"
+    class="fixed top-0 left-0 w-full p-2 h-full flex items-center justify-center bg-black bg-opacity-50 hidden">
     <div class="bg-white p-6 rounded-md shadow-md relative max-w-2xl">
         <button id="closeTravelLeadBtn" class="absolute top-0 right-0 p-2 cursor-pointer" title="Close">
             <svg class="h-6 w-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -21,22 +22,32 @@
                 </div>
                 <div class="px-2 mb-4 w-full">
                     <label for="name" class="block text-sm font-medium text-gray-600">Full Name:</label>
-                    <input type="text" id="name" name="name" placeholder="Enter Your Full Name" autocomplete="name" 
-                        class="mt-1 p-2 border rounded-md w-full" required>
+                    <input type="text" id="name" name="name" placeholder="Enter Your Full Name"
+                        autocomplete="name" class="mt-1 p-2 border rounded-md w-full" required>
                 </div>
                 <div class="px-2 mb-4 w-1/2">
                     <label for="email" class="block text-sm font-medium text-gray-600">Email Address:</label>
-                    <input type="email" id="email" name="email" placeholder="Enter Your Email Address" autocomplete="email" 
-                        class="mt-1 p-2 border rounded-md w-full" required>
+                    <input type="email" id="email" name="email" placeholder="Enter Your Email Address"
+                        autocomplete="email" class="mt-1 p-2 border rounded-md w-full" required>
                 </div>
                 <div class="px-2 mb-4 w-1/2">
                     <label for="contact" class="block text-sm font-medium text-gray-600">Phone Number:</label>
-                    <input type="text" id="contact" name="contact" placeholder="Enter Your Contact Number" autocomplete="off" 
-                        class="mt-1 p-2 border rounded-md w-full" maxlength="10" required>
+                    <input type="text" id="contact" name="contact" placeholder="Enter Your Contact Number"
+                        autocomplete="off" class="mt-1 p-2 border rounded-md w-full" maxlength="10" required>
+                </div>
+                <div class="px-2 mb-4 w-1/2">
+                    <label for="adult" class="block text-sm font-medium text-gray-600">Number of People:</label>
+                    <input type="number" id="adult" name="adult" placeholder="Enter number of adults and children"
+                        autocomplete="off" class="mt-1 p-2 border rounded-md w-full" maxlength="10" required>
+                </div>
+                <div class="px-2 mb-4 w-1/2">
+                    <label for="travel_date" class="block text-sm font-medium text-gray-600">Travel Date:</label>
+                    <input type="date" id="travel_date" name="travel_date" placeholder="Enter Your Contact Number"
+                        autocomplete="off" class="mt-1 p-2 border rounded-md w-full" maxlength="10" required>
                 </div>
                 <div class="px-2 mb-4 w-full">
                     <label for="message" class="block text-sm font-medium text-gray-600">Message:</label>
-                    <textarea id="message" name="message" placeholder="Enter Your Message" autocomplete="off" 
+                    <textarea id="message" name="message" placeholder="Enter Your Message" autocomplete="off"
                         class="mt-1 p-2 border rounded-md w-full"></textarea>
                 </div>
                 <div class="px-2 w-full mt-3">
