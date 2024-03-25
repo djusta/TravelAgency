@@ -14,10 +14,10 @@
 @section('content')
     <div class="row">
         <div class="col-md-4">
-            <x-widgets.admin-lead  :leads="$leads" />
+            <x-widgets.admin-lead :leads="$leads" />
         </div>
         <div class="col-md-4">
-            <x-widgets.admin-destination  :destinations="$destinations" />
+            <x-widgets.admin-destination :destinations="$destinations" />
         </div>
     </div>
 @endsection
