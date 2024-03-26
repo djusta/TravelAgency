@@ -11,11 +11,12 @@
             <nav class="flex items-center justify-between md:px-10">
                 <div class="flex items-center">
                     <img src="{{ asset('logo.png') }}" alt="" srcset="" class="w-20">
-                    <h2 class="text-3xl text-white font-extrabold font-serif text-center hidden md:block">{{ config('app.name') }}</h2>
+                    <h2 class="text-3xl text-white font-extrabold font-serif text-center hidden md:block">
+                        {{ config('app.name') }}</h2>
                 </div>
                 <div class="text-white">
-                    <p><strong class="hidden md:inline">Email:</strong> info@yourtravellingpartner.com</p>
-                    <p><strong class="hidden md:inline">Phone:</strong> {{ config('app.primary_contact') }}</p>
+                    <p><strong class="mr-2"><i class="fas fa-envelope"></i></strong> info@yourtravellingpartner.com</p>
+                    <p><strong class="mr-2"><i class="fas fa-phone"></i></strong> {{ config('app.primary_contact') }}</p>
                 </div>
             </nav>
         </div>
@@ -113,6 +114,28 @@
         </div>
     </section>
 
+    @php
+        $counter = [
+            ['number' => 120, 'label' => 'Destinations Travelled'],
+            ['number' => '1 Lac +', 'label' => 'Happy Travellers'],
+            ['number' => '7+', 'label' => 'Years of Experience'],
+            ['number' => '&infin;', 'label' => 'Memorable Moments'],
+        ];
+    @endphp
+    <section id="counter"
+        style="background-image: url('{{ asset('images/39330.jpg') }}')"
+        class="py-16 bg-cover bg-blend-overlay bg-slate-700">
+        <h3 class="text-3xl font-bold text-white text-center mb-5">Why Choose Us?</h3>
+        <div class="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-5 text-neutral-200">
+            @foreach ($counter as $item)
+                <div>
+                    <p class="text-5xl text-center font-extrabold">{!! $item['number'] !!}</p>
+                    <p class="text-2xl text-center">{{ $item['label'] }}</p>
+                </div>
+            @endforeach
+        </div>
+    </section>
+
     <section class="text-gray-600 body-font relative">
         <div class="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
             <div
@@ -122,15 +145,22 @@
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3416.240775737897!2d77.2015736!3d31.1030393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3905788cfb63c017%3A0x749092205fedac60!2sYour%20Travelling%20Partner!5e0!3m2!1sen!2sin!4v1708619632026!5m2!1sen!2sin"></iframe>
                 <div class="bg-white relative flex flex-wrap py-6 rounded shadow-md">
                     <div class="lg:w-1/2 px-6">
-                        <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">ADDRESS</h2>
-                        <p class="mt-1"><strong>Manali</strong> Opposite to hotel surya international,aleo,new manali
-                            175131.</p>
+                        <div>
+                            <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">ADDRESS</h2>
+                            <p class="mt-1"><strong>Shimla</strong> Your Travelling Partner, Lumber Dar Building, Dhingu
+                                Dhar, Sanjauli, Shimla 171006.</p>
+                            <p class="mt-1"><strong>Manali</strong> Your Travelling Partner, Opposite to hotel surya
+                                international,aleo,new manali
+                                175131.</p>
+                        </div>
                     </div>
                     <div class="lg:w-1/2 px-6 mt-4 lg:mt-0">
                         <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">EMAIL</h2>
                         <a class="text-indigo-500 leading-relaxed">info@yourtravellingpartner.com</a>
+                        <a class="text-indigo-500 leading-relaxed">support@yourtravellingpartner.com</a>
                         <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">PHONE</h2>
-                        <p class="leading-relaxed">{{ config('app.primary_contact') }}</p>
+                        <p class="leading-relaxed"><strong>Primary:</strong> {{ config('app.primary_contact') }}</p>
+                        <p class="leading-relaxed"><strong>Support:</strong> 8219729822</p>
                     </div>
                 </div>
             </div>
