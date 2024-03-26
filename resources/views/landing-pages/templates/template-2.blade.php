@@ -8,9 +8,15 @@
     <section class="min-h-screen flex flex-col bg-cover bg-fixed bg-black bg-opacity-30 bg-blend-overlay"
         style="background-image: url('{{ asset('images/1094.jpg') }}')">
         <div class="bg-black bg-opacity-50 p-2">
-            <nav class="flex items-center justify-center">
-                <img src="{{ asset('logo.png') }}" alt="" srcset="" class="w-20">
-                <h2 class="text-3xl text-white font-extrabold font-serif text-center">{{ config('app.name') }}</h2>
+            <nav class="flex items-center justify-between md:px-10">
+                <div class="flex items-center">
+                    <img src="{{ asset('logo.png') }}" alt="" srcset="" class="w-20">
+                    <h2 class="text-3xl text-white font-extrabold font-serif text-center hidden md:block">{{ config('app.name') }}</h2>
+                </div>
+                <div class="text-white">
+                    <p><strong class="hidden md:inline">Email:</strong> info@yourtravellingpartner.com</p>
+                    <p><strong class="hidden md:inline">Phone:</strong> {{ config('app.primary_contact') }}</p>
+                </div>
             </nav>
         </div>
         <div class="container mx-auto flex-1 flex items-center justify-center">
@@ -107,6 +113,60 @@
         </div>
     </section>
 
+    <section class="text-gray-600 body-font relative">
+        <div class="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
+            <div
+                class="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
+                <iframe width="100%" height="100%" class="absolute inset-0" frameborder="0" title="map"
+                    marginheight="0" marginwidth="0" scrolling="no"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3416.240775737897!2d77.2015736!3d31.1030393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3905788cfb63c017%3A0x749092205fedac60!2sYour%20Travelling%20Partner!5e0!3m2!1sen!2sin!4v1708619632026!5m2!1sen!2sin"></iframe>
+                <div class="bg-white relative flex flex-wrap py-6 rounded shadow-md">
+                    <div class="lg:w-1/2 px-6">
+                        <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">ADDRESS</h2>
+                        <p class="mt-1"><strong>Manali</strong> Opposite to hotel surya international,aleo,new manali
+                            175131.</p>
+                    </div>
+                    <div class="lg:w-1/2 px-6 mt-4 lg:mt-0">
+                        <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">EMAIL</h2>
+                        <a class="text-indigo-500 leading-relaxed">info@yourtravellingpartner.com</a>
+                        <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">PHONE</h2>
+                        <p class="leading-relaxed">{{ config('app.primary_contact') }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
+                <form id="travelLeadForm" action="{{ route('landingPage.storeLead') }}" method="post">
+                    @csrf
+                    <h2 class="text-gray-900 text-lg mb-1 font-medium title-font">Contact Us</h2>
+                    {{-- <p class="leading-relaxed mb-5 text-gray-600">Post-ironic portland shabby chic echo park, banjo fashion axe</p> --}}
+                    <div class="relative mb-4">
+                        <label for="name" class="leading-7 text-sm text-gray-600">Name</label>
+                        <input type="text" id="name" name="name"
+                            class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                    </div>
+                    <div class="relative mb-4">
+                        <label for="contact" class="leading-7 text-sm text-gray-600">Contact number</label>
+                        <input type="text" id="contact" name="contact"
+                            class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                    </div>
+                    <div class="relative mb-4">
+                        <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
+                        <input type="email" id="email" name="email"
+                            class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                    </div>
+                    <div class="relative mb-4">
+                        <label for="message" class="leading-7 text-sm text-gray-600">Message</label>
+                        <textarea id="message" name="message"
+                            class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+                    </div>
+                    <button
+                        class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Send</button>
+                    {{-- <p class="text-xs text-gray-500 mt-3">Chicharrones blog helvetica normcore iceland tousled brook viral artisan.</p> --}}
+                </form>
+            </div>
+        </div>
+    </section>
+
     <section class="py-6 bg-black text-white text-center">
         <h4 class="text center text-2xl font-serif mb-3">Other Packages You May Like.</h4>
         <p class="container px-3 mx-auto text-justify">Manali Tour Packages | Shimla Manali Tour Package | Manali Trip
@@ -150,8 +210,8 @@
                 {{ date('Y') }} — All Rights Reserved</p>
             <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
                 <a href="{{ config('app.facebook') }}" class="text-gray-500">
-                    <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5"
-                        viewBox="0 0 24 24">
+                    <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        class="w-5 h-5" viewBox="0 0 24 24">
                         <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
                     </svg>
                 </a>
@@ -180,8 +240,8 @@
                     </svg>
                 </a> --}}
                 <a href="{{ config('app.youtube') }}" class="ml-3 text-gray-500">
-                    <svg fill="currentColor" stroke="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        class="w-5 h-5" viewBox="0 0 24 24">
+                    <svg fill="currentColor" stroke="none" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
                         <path
                             d="M21.03 6.89a2 2 0 00-1.42-1.41C18.56 5 12 5 12 5s-6.56 0-7.61.48a2 2 0 00-1.42 1.41C2 8.44 2 12 2 12s0 3.56.48 4.61a2 2 0 001.41 1.41C5.44 18 12 18 12 18s6.56 0 7.61-.48a2 2 0 001.42-1.41C22 15.56 22 12 22 12s0-3.56-.48-4.61zM10 15V9l5.2 3-5.2 3z">
                         </path>
@@ -239,7 +299,11 @@
     <script>
         setTimeout(() => {
             openLeadForm();
-        }, 15 * 1000);
+
+            setInterval(() => {
+                openLeadForm();
+            }, 30 * 1000);
+        }, 3 * 1000);
 
         // Function to open modal
         function openItineraryModal(packageName, itineraries) {

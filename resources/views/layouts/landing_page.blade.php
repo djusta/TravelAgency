@@ -53,7 +53,7 @@
                 })
                 .then(data => {
                     var locationName = data.display_name;
-                    console.log('Location:', locationName);
+                    console.log('User Location:', locationName);
                     $('#user_location').val(locationName);
                 })
                 .catch(error => {

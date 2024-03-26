@@ -9,31 +9,31 @@
             </svg>
         </button>
         <h2 class="text-2xl font-bold mb-1">Book Your Adventure!</h2>
-        <p class="mb-4">Please provide your information to book this amazing travel package:</p>
+        <p class="mb-4">Get upto <strong>30% off</strong> on your first tour package:</p>
         <form id="travelLeadForm" action="{{ isset($action) ? $action : route('storeLead') }}" method="post">
             @csrf
             <div class="flex flex-wrap">
                 <input type="hidden" name="your_name">
                 <input type="hidden" name="user_location" id="user_location">
                 <div class="px-2 mb-4 w-full">
-                    <label for="package" class="block text-sm font-medium text-gray-600">Package Name:</label>
-                    <input type="text" id="package" name="package" placeholder="Package" autocomplete="off"
-                        class="mt-1 p-2 border rounded-md w-full">
-                </div>
-                <div class="px-2 mb-4 w-full">
                     <label for="name" class="block text-sm font-medium text-gray-600">Full Name:</label>
                     <input type="text" id="name" name="name" placeholder="Enter Your Full Name"
-                        autocomplete="name" class="mt-1 p-2 border rounded-md w-full" required>
+                    autocomplete="name" class="mt-1 p-2 border rounded-md w-full" required>
                 </div>
                 <div class="px-2 mb-4 w-1/2">
                     <label for="email" class="block text-sm font-medium text-gray-600">Email Address:</label>
                     <input type="email" id="email" name="email" placeholder="Enter Your Email Address"
-                        autocomplete="email" class="mt-1 p-2 border rounded-md w-full" required>
+                    autocomplete="email" class="mt-1 p-2 border rounded-md w-full" required>
                 </div>
                 <div class="px-2 mb-4 w-1/2">
                     <label for="contact" class="block text-sm font-medium text-gray-600">Phone Number:</label>
                     <input type="text" id="contact" name="contact" placeholder="Enter Your Contact Number"
-                        autocomplete="off" class="mt-1 p-2 border rounded-md w-full" maxlength="10" required>
+                    autocomplete="off" class="mt-1 p-2 border rounded-md w-full" maxlength="10" required>
+                </div>
+                <div class="px-2 mb-4 w-full">
+                    <label for="package" class="block text-sm font-medium text-gray-600">Package Name:</label>
+                    <input type="text" id="package" name="package" placeholder="Package" autocomplete="off"
+                        class="mt-1 p-2 border rounded-md w-full">
                 </div>
                 <div class="px-2 mb-4 w-1/2">
                     <label for="adult" class="block text-sm font-medium text-gray-600">Number of People:</label>
